@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "OSM iD Custom Layer Selector",
+    "version": "1.43",
+    "description": "An extension to let you easily choose from multiple custom layers",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "clipboardWrite",
+        "storage"   
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [
+        {
+      "matches": ["https://www.openstreetmap.org/edit*", "https://www.openstreetmap.org/id"],
+      "js": ["content.js"],
+      "all_frames": true  
+        }
+    ],
+    "icons": {
+        "48": "icon.png"
+    }
+}

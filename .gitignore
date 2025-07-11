@@ -1,0 +1,12 @@
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Node modules 
+node_modules/

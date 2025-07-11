@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OSM ID: Custom Layer Settings</title>
+    <style>
+        body {
+            width: 320px;  
+            padding: 15px;
+            font-family: sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        h3 {
+            text-align: center;
+            color: #4CAF50; 
+            margin-bottom: 20px;
+        }
+        .description {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .input-group input[type="text"] {
+            width: calc(100% - 12px); 
+            padding: 8px 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;
+            box-sizing: border-box; 
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            background-color: #007bff; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .feedback {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 13px;
+            color: green;
+        }
+        .credits {
+            margin-top: 30px; 
+            font-size: 12px; 
+            text-align: center;
+            color: #555; 
+        }
+        .credits h6 { 
+            margin: 0; 
+            font-size: 1em; 
+            font-weight: normal; 
+        }
+        .credits a {
+            color: #555; 
+            text-decoration: none;
+        }
+        .credits a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h3>OSM iD: Custom Layer Settings</h3>
+
+    <p class="description">
+        This extension allows you to add custom background map layers to the OpenStreetMap iD editor.
+        Define your preferred map layers below with a name and URL template.<br>
+        Once saved, open the iD editor, click on the <strong>"Background Settings"</strong> button (layers icon), then
+        on <strong>"Edit custom background"</strong> (three dots icon). <br>
+		Your custom layers will appear as buttons
+        in the new pop-up panel. Click a button to instantly apply your desired background!
+    </p>
+
+    <form id="settingsForm">
+        </form>
+
+    <button id="saveButton">Save Settings</button>
+    <div id="feedback" class="feedback"></div>
+
+    <div class="credits">
+        <h6>&copy; 2024 <strong>dp7</strong>@<a href="https://www.openstreetmap.org/user/dp7" target="_blank">OpenStreetMap</a><br>Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a></h6>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

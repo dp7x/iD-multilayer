@@ -10,7 +10,6 @@ OSM iD: Custom Background Layers is a lightweight Chrome extension designed to e
 * **Seamless Integration:** Designed to blend visually with the iD editor's interface, providing a native feel.
 * **One-Click Application:** Apply any of your defined custom layers with a single click – the extension automatically handles the URL input and confirms the selection in iD.
 * **Customizable Layers:** Define a name and URL template for each layer.
-* **Consistent Styling:** Buttons within the custom panel use a harmonized color palette, ensuring a professional and non-distracting appearance.
 
 ## Installation
 

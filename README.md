@@ -37,7 +37,7 @@ To install OSM iD: Custom Background Layers, follow these steps:
 1.  **Configure Your Custom Layers:**
     * Click on the **OSM iD: Custom Layer Settings** icon in your Chrome toolbar (the extension's popup).
     * Use the "Add New Layer" button to create new entries.
-    * For each layer, enter a **Button Text** (what you want to see on the button, e.g., "Google Satellite") and the **URL Template** for your map service (e.g., `https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}`).
+    * For each layer, enter a **Button Text** (what you want to see on the button, e.g., "OpenTopoMap") and the **URL Template** for your map service (e.g., `[https://tile.opentopomap.org/{z}/{x}/{y}.png]`).
     * Click "Save Settings".
 2.  **Access Layers in iD Editor:**
     * Open the OpenStreetMap iD editor (e.g., `https://www.openstreetmap.org/edit`).

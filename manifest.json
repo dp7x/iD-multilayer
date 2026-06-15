@@ -1,11 +1,14 @@
 {
     "manifest_version": 3,
-    "name": "OSM iD Custom Layer Selector",
-    "version": "1.43",
-    "description": "An extension to let you easily choose from multiple custom layers",
+    "name": "OSM iD: Custom Layers & Comment Suggester",
+    "version": "1.50",
+    "description": "An extension to let you easily choose from multiple custom layers and suggest changeset comments",
     "permissions": [
         "storage"   
     ],
+    "host_permissions": [
+        "https://nominatim.openstreetmap.org/*"
+    ],	
     "action": {
         "default_popup": "popup.html",
         "default_icon": "icon.png"

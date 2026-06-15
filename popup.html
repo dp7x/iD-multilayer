@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OSM ID: Custom Layer Settings</title>
+    <title>OSM iD: Custom Layer & Comment Suggester</title>
     <style>
         body {
             width: 320px;  
@@ -86,21 +86,31 @@
     </style>
 </head>
 <body>
-    <h3>OSM iD: Custom Layer Settings</h3>
+    <h3>OSM iD: Custom Layer & Comment Suggester 1.50</h3>
 
-    <p class="description">
-        This extension allows you to add custom background map layers to the OpenStreetMap iD editor.
-        Define your preferred map layers below with a name and URL template.<br>
-        Once saved, open the iD editor, click on the <strong>"Background Settings"</strong> button (layers icon), then
-        on <strong>"Edit custom background"</strong> (three dots icon). <br>
-		Your custom layers will appear as buttons
-        in the new pop-up panel. Click a button to instantly apply your desired background!
-    </p>
+	<p class="description">
+		<strong>Custom Background Layers settings</strong><br>
+		Add custom background map layers to the OpenStreetMap iD editor.
+		Define your preferred map layers below with a name and URL template.<br>
+		Once saved, open the iD editor, click on the <strong>"Background Settings"</strong> button (layers icon), then
+		on <strong>"Edit custom background"</strong> (three dots icon).<br>
+		Your custom layers will appear as buttons in the new pop-up panel. Click a button to instantly apply your desired background!
+	</p>
 
     <form id="settingsForm">
         </form>
 
     <button id="saveButton">Save Settings</button>
+	
+	<p class="description" style="margin-top: 15px;">
+		<strong>Changeset Comment Suggester</strong><br>
+		Automatically generates descriptive comments for your changesets.<br>
+		When saving in iD Editor, click the <strong>"Suggest"</strong> button to generate a comment like:<br>
+		<code>"landuses, buildings in XYZ area"</code><br>
+		The extension analyzes your changes (landuse, natural, building, amenity, etc.) and detects the current area.
+		<br>For suggestions or feedback, <a href="https://www.openstreetmap.org/messages/new/dp7" target="_blank">contact me on OpenStreetMap</a>.
+	</p>	
+
     <div id="feedback" class="feedback"></div>
 
     <div class="credits">

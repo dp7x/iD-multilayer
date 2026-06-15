@@ -262,6 +262,368 @@
         console.log('Delegated click listeners set up for iD editor buttons.');
     }
 
-    setupIDEditorListeners();
+	// ==============================================
+	// NEW FEATURE: Changeset comment suggester
+    // ==============================================
+    
+	// Download and parse OSMChange file to extract object types
+    async function analyzeChangesFromOsmChange() {
+        // Find the link to download the OSMChange file
+        const downloadLink = document.querySelector('.download-changes');
+        if (!downloadLink) {
+            console.log("iD-multilayer: Link OSMChange not found");
+            return null;
+        }
+        
+        const osmChangeUrl = downloadLink.href;
+        if (!osmChangeUrl || !osmChangeUrl.startsWith('blob:')) {
+            console.log("iD-multilayer: URL OSMChange invalid");
+            return null;
+        }
+        
+        //console.log("iD-multilayer: Downloading OSMChange from:", osmChangeUrl);
+        
+        try {
+            const response = await fetch(osmChangeUrl);
+            const osmChangeText = await response.text();
+            
+            // Parsing XML
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(osmChangeText, 'text/xml');
+            
+            const typeCount = {};
+            
+            // Analyze tags <create> and <modify>
+            const actions = ['create', 'modify'];
+            actions.forEach(action => {
+                const elements = xmlDoc.getElementsByTagName(action);
+                for (const element of elements) {
+                    const ways = element.getElementsByTagName('way');
+                    for (const way of ways) {
+                        const tags = way.getElementsByTagName('tag');
+                        for (const tag of tags) {
+                            const key = tag.getAttribute('k');
+                            const value = tag.getAttribute('v');
+                            
+                            // Main types
+                            if (key === 'landuse') {
+                                typeCount['landuse'] = (typeCount['landuse'] || 0) + 1;
+                                //console.log(`- Found landuse: ${value}`);
+                            } else if (key === 'natural') {
+                                typeCount['natural'] = (typeCount['natural'] || 0) + 1;
+                                //console.log(`- Found natural: ${value}`);
+                            } else if (key === 'historic') {
+                                typeCount['historic'] = (typeCount['historic'] || 0) + 1;
+                                //console.log(`- Found natural: ${value}`);								
+                            } else if (key === 'amenity') {
+                                typeCount['amenity'] = (typeCount['amenity'] || 0) + 1;
+                                //console.log(`- Found amenity: ${value}`);								
+                            } else if (key === 'building') {
+                                typeCount['building'] = (typeCount['building'] || 0) + 1;
+                                //console.log(`- Found building: ${value}`);
+                            } else if (key === 'highway') {
+                                typeCount['highway'] = (typeCount['highway'] || 0) + 1;
+                                //console.log(`- Found highway: ${value}`);
+                            } else if (key === 'waterway') {
+                                typeCount['waterway'] = (typeCount['waterway'] || 0) + 1;
+                                //console.log(`- Found waterway: ${value}`);
+                            } else if (key === 'leisure') {
+                                typeCount['leisure'] = (typeCount['leisure'] || 0) + 1;
+                                //console.log(`- Found leisure: ${value}`);
+                            }
+                        }
+                    }
+                }
+            });
+            
+            console.log("iD-multilayer: types found from OSMChange:", typeCount);
+            return Object.keys(typeCount).length > 0 ? typeCount : null;
+            
+        } catch (error) {
+            console.error("iD-multilayer: Error in parsing OSMChange:", error);
+            return null;
+        }
+    }
+    
+     
+    // Gets geographic area from coordinates
+    async function getCurrentArea() {
+        try {
+            const locationControl = document.querySelector('.location-control .location-status, .map-control.map-pane-control.location-control');
+            
+            if (locationControl) {
+                const locationText = locationControl.textContent || locationControl.innerText;
+                console.log("iD-multilayer: text position found:", locationText);
+                
+                // Tries to get place name from place panel (ctrl+shift+L)
+                const lines = locationText.split('\n').filter(l => l.trim());
+                
+                // Looks for an address
+                for (const line of lines) {
+                    if (line.includes(',') && !line.includes('°') && !line.includes('′')) {
+                        // Takes first part, before comma
+                        const parts = line.split(',');
+                        if (parts.length > 0) {
+                            const city = parts[0].trim();
+                            if (city && city !== '') {
+                                console.log(`iD-multilayer: area name found: ${city}`);
+                                return city;
+                            }
+                        }
+                    }
+                }
+                
+                // If place not found, tries by coordinates
+                for (const line of lines) {
+                    const coordMatch = line.match(/(\d+\.\d+),\s*(\d+\.\d+)/);
+                    if (coordMatch) {
+                        const lat = parseFloat(coordMatch[1]);
+                        const lon = parseFloat(coordMatch[2]);
+                        console.log(`iD-multilayer: Coordinates found: ${lat}, ${lon}`);
+                        
+                        // Uses Nominatim with these coordinates
+                        const response = await fetch(
+                            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&zoom=10&format=json&addressdetails=1`,
+                            {
+                                headers: {
+                                    'User-Agent': 'iD-multilayer-extension/1.0 (https://github.com/dp7x/iD-multilayer)'
+                                }
+                            }
+                        );
+                        const data = await response.json();
+                        
+                        const area = data.address?.city || 
+                                    data.address?.town || 
+                                    data.address?.village || 
+                                    data.address?.county;
+                        
+                        if (area) {
+                            console.log(`iD-multilayer: Area from Nominatim: ${area}`);
+                            return area;
+                        }
+                        break;
+                    }
+                }
+            }
+            
+            // Fallback: tries to get area from OSC OSMChange file 
+            const downloadLink = document.querySelector('.download-changes');
+            if (downloadLink) {
+                const osmChangeUrl = downloadLink.href;
+                if (osmChangeUrl && osmChangeUrl.startsWith('blob:')) {
+                    const response = await fetch(osmChangeUrl);
+                    const osmChangeText = await response.text();
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(osmChangeText, 'text/xml');
+                    
+                    let lats = [], lons = [];
+                    const nodes = xmlDoc.getElementsByTagName('node');
+                    for (const node of nodes) {
+                        const lat = parseFloat(node.getAttribute('lat'));
+                        const lon = parseFloat(node.getAttribute('lon'));
+                        if (!isNaN(lat) && !isNaN(lon)) {
+                            lats.push(lat);
+                            lons.push(lon);
+                        }
+                    }
+                    
+                    if (lats.length > 0) {
+                        const centerLat = lats.reduce((a, b) => a + b, 0) / lats.length;
+                        const centerLon = lons.reduce((a, b) => a + b, 0) / lons.length;
+                        
+                        const nominatimResponse = await fetch(
+                            `https://nominatim.openstreetmap.org/reverse?lat=${centerLat}&lon=${centerLon}&zoom=10&format=json&addressdetails=1`,
+                            {
+                                headers: {
+                                    'User-Agent': 'iD-multilayer-extension/1.0 (https://github.com/dp7x/iD-multilayer)'
+                                }
+                            }
+                        );
+                        const data = await nominatimResponse.json();
+                        
+                        const area = data.address?.city || 
+                                    data.address?.town || 
+                                    data.address?.village || 
+                                    data.address?.county;
+                        
+                        if (area) return area;
+                    }
+                }
+            }
+            
+        } catch (error) {
+            console.error("iD-multilayer: Error getting the area:", error);
+        }
+        
+        return "area unknown";
+    }
+    
+    // Generate comment text based on types and area
+    function generateComment(typeCount, areaName) {
+        const sorted = Object.entries(typeCount)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3);
+        
+        if (sorted.length === 0) return null;
+        
+		// Pluralize names (simple, works for English)
+        const typeNames = sorted.map(([type]) => {
+            if (type === 'highway') return 'highways';
+            if (type === 'building') return 'buildings';
+            if (type === 'landuse') return 'landuses';
+            if (type === 'natural') return 'naturals';
+			if (type === 'leisure') return 'leisures';
+			if (type === 'waterway') return 'waterways';
+            if (type === 'amenity') return 'amenities';			
+			if (type === 'historic') return 'historics';		
+            return type + 's';
+        });
+        
+        let comment;
+        const totalTypes = Object.keys(typeCount).length;
+        
+        if (sorted.length === 1) {
+            comment = `${typeNames[0]} in ${areaName} area`;
+        } else if (sorted.length === 2) {
+            comment = `${typeNames[0]}, ${typeNames[1]} in ${areaName} area`;
+        } else {
+            comment = `${typeNames[0]}, ${typeNames[1]}, ${typeNames[2]}`;
+            if (totalTypes > 3) {
+                comment = `${comment} and other improvements in ${areaName} area`;
+            } else {
+                comment = `${comment} in ${areaName} area`;
+            }
+        }
+        
+        return comment;
+    }
+    
+   // Updated version of insertSuggestedComment
+    async function insertSuggestedComment() {
+        console.log("iD-multilayer: Generating suggested comment...");
+        
+        // Show loading indicator
+        const suggestBtn = document.getElementById('id-multilayer-suggest-btn');
+        const originalText = suggestBtn ? suggestBtn.textContent : '';
+        if (suggestBtn) {
+            suggestBtn.textContent = '⏳ Analyzing...';
+            suggestBtn.disabled = true;
+        }
+        
+        try {
+            const typeCount = await analyzeChangesFromOsmChange();
+            
+            if (!typeCount || Object.keys(typeCount).length === 0) {
+                alert("⚠️ No changes detected in OSMChange file.\n\nMake sure you have made changes in this session.");
+                return;
+            }
+            
+            const areaName = await getCurrentArea();
+            const suggestion = generateComment(typeCount, areaName);
+            
+            if (suggestion) {
+                const commentField = document.querySelector('.form-field-comment textarea');
+                if (commentField) {
+                    commentField.value = suggestion;
+                    commentField.dispatchEvent(new Event('input', { bubbles: true }));
+                    
+                    commentField.style.backgroundColor = '#e8f5e9';
+                    commentField.style.transition = 'background-color 0.5s ease';
+                    setTimeout(() => {
+                        commentField.style.backgroundColor = '';
+                    }, 1000);
+                    
+                    console.log(`iD-multilayer: Comment inserted: "${suggestion}"`);
+                } else {
+                    alert("Comment field not found.");
+                }
+            }
+        } finally {
+            // Restore button
+            if (suggestBtn) {
+                suggestBtn.textContent = originalText;
+                suggestBtn.disabled = false;
+            }
+        }
+    }
+    
+    // Add "Suggest comment" button to the save dialog
+    let saveDialogObserver = null;
+    
+    function addSuggestionButtonToSaveDialog() {
+        // Prevent duplicate observers
+        if (saveDialogObserver) return;
+        
+        saveDialogObserver = new MutationObserver(() => {
+            // Look for the changeset panel (when the save dialog appears)
+            const changesetEditor = document.querySelector('.modal-section.changeset-editor');
+            const existingButton = document.getElementById('id-multilayer-suggest-btn');
+            
+            // If we find the changeset editor and the button doesn't exist yet
+            if (changesetEditor && !existingButton) {
+                // Look for the button container (where Cancel and Save are)
+                const buttonContainer = document.querySelector('.save-section .buttons');
+                
+                if (buttonContainer) {
+                    const suggestBtn = document.createElement('button');
+                    suggestBtn.id = 'id-multilayer-suggest-btn';
+                    suggestBtn.textContent = '💡 Suggest';
+                    suggestBtn.className = 'action button';  // Uses ID class for style
+                    suggestBtn.style.marginRight = '8px';
+                    suggestBtn.style.backgroundColor = '#4CAF50';
+                    suggestBtn.style.color = 'white';
+                    suggestBtn.style.border = 'none';
+                    suggestBtn.style.borderRadius = '3px';
+                    suggestBtn.style.padding = '6px 12px';
+                    suggestBtn.style.cursor = 'pointer';
+                    suggestBtn.style.fontSize = '13px';
+                    suggestBtn.style.fontWeight = 'bold';
+                    
+                    // Hover effect
+                    suggestBtn.onmouseover = () => { suggestBtn.style.backgroundColor = '#45a049'; };
+                    suggestBtn.onmouseout = () => { suggestBtn.style.backgroundColor = '#4CAF50'; };
+                    
+                    suggestBtn.onclick = insertSuggestedComment;
+                    
+                    // Insert it as the first button (before "Cancel")
+                    if (buttonContainer.firstChild) {
+                        buttonContainer.insertBefore(suggestBtn, buttonContainer.firstChild);
+                    } else {
+                        buttonContainer.appendChild(suggestBtn);
+                    }
+                    
+                    //console.log("iD-multilayer: 'Suggest comment' button added to save dialog");
+                }
+            }
+        });
+        
+        // Observe the entire document for the save panel addition
 
-})(); 
+
+        saveDialogObserver.observe(document.body, { childList: true, subtree: true });
+        //console.log("iD-multilayer: Save dialog observer activated");
+    }
+    
+    // ==============================================
+	// EXTENSION of setupIDEditorListeners function
+    // ==============================================
+    
+    // Save original function
+    const originalSetupID = setupIDEditorListeners;
+    
+    // Redefine it including the new functionality
+    window.setupIDEditorListeners = async function() {
+        //console.log("iD-multilayer: Starting extended setupIDEditorListeners");
+        
+        await originalSetupID();
+        
+        // Add comment suggester
+        addSuggestionButtonToSaveDialog();
+        //console.log("iD-multilayer: Comment Suggester ready");
+    };
+    
+    // Start everything
+    console.log("iD-multilayer: Extension initialization...");
+    window.setupIDEditorListeners();
+
+})();

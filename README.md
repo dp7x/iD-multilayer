@@ -16,7 +16,7 @@ OSM iD: Custom Background Layers is a lightweight Chrome extension designed to e
 * **Automatic Analysis:** Scans your edits (landuse, natural, building, amenity, historic, etc.) directly from the OSMChange file.
 * **Smart Area Detection:** Identifies the current location from iD's location panel or coordinates via Nominatim.
 * **One-Click Generation:** Adds a **"Suggest"** button to the save dialog. Click it to generate a comment like:  
-  `"landuses, buildings in Ancona area"`
+  `"landuses, buildings in XYZ area"`
 * **Intelligent Sorting:** Lists the top 3 most modified object types in your comment. If you modify more than 3 types, it adds "and other improvements".
 * **Privacy First:** Everything happens locally — no external API calls except for area name resolution (optional).
 

@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "OSM iD: Custom Layers & Comment Suggester",
-    "version": "1.50",
+    "name": "cOSMetics: Custom Layers & Comment Suggester for iD",
+    "version": "1.61",
     "description": "An extension to let you easily choose from multiple custom layers and suggest changeset comments",
     "permissions": [
         "storage"   

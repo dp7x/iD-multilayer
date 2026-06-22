@@ -79,7 +79,7 @@ The comment suggester detects and counts **any OSM tag key**, including but not 
 - `natural` (wood, scrub, grassland)
 - `building`
 - `highway` (residential, footway, path)
-- `waterway`, `leisure`, `amenity`, `historic`, `shop`, `office`, `tourism`
+- `waterway`, `leisure`, `amenity`, `historic`...
 
 The top 3 most modified types appear in the comment. If more than 3 types are modified, it adds `"and other improvements"`.
 

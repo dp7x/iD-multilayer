@@ -1,0 +1,380 @@
+{
+  "appName": {
+    "message": "cOSMetics for iD"
+  },
+  "appDescription": {
+    "message": "Custom background layers, changeset comment suggestions, and Overture building outlines for iD."
+  },
+  "popupTitle": {
+    "message": "cOSMetics for iD 1.82"
+  },
+  "overtureEnable": {
+    "message": "Show Overture building controls in iD"
+  },
+  "overtureEnableHelp": {
+    "message": "Enable them when you want to inspect and add buildings. This choice is saved automatically."
+  },
+  "overtureDescription": {
+    "message": "<strong>Overture buildings</strong><br>This feature lets you load the building layer from Overture.<br>Once enabled, at zoom 18 or higher press <strong>Load area</strong> to load the buildings in the visible area. Select an outline and press <strong>A</strong> or <strong>Add (A)</strong>.<br><strong>Check each building before saving:</strong> generated outlines can be inaccurate. Compare them with imagery and OSM data, and correct their shape and position when needed. If you move the map, press the button again to load the visible area."
+  },
+  "backgroundDescription": {
+    "message": "<strong>Custom background layers</strong><br>This feature lets you save additional custom backgrounds beyond the one provided by iD.<br>Add backgrounds here with a name and a URL template. In iD open <strong>Background settings</strong> (layers icon), then <strong>Edit custom background</strong> (three dots). Choose a saved layer in the panel to display it on the map.<br><strong>Important:</strong> make sure the backgrounds you use are permitted for OpenStreetMap mapping!"
+  },
+  "commentDescription": {
+    "message": "<strong>Changeset comment suggestions</strong><br>This feature suggests a comment for your changesets when you are unsure what to write. It analyzes your edits and proposes a description of the main changes.<br>When saving in iD, press <strong>Suggest</strong> to generate a comment based on your edits and the current area. Review and correct it before uploading, or replace it if you find it unsuitable.<br><br>For suggestions or feedback, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">contact me on OpenStreetMap</a>."
+  },
+  "commentsInEnglish": {
+    "message": "Comments in English"
+  },
+  "commentsInEnglishHelp": {
+    "message": "Always write suggested comments in English, regardless of the browser language."
+  },
+  "licensePrefix": {
+    "message": "Licensed under the"
+  },
+  "addLayer": {
+    "message": "Add new layer"
+  },
+  "buttonText": {
+    "message": "Button text:"
+  },
+  "layerNameExample": {
+    "message": "e.g. OSM Standard"
+  },
+  "urlTemplate": {
+    "message": "URL template:"
+  },
+  "urlExample": {
+    "message": "e.g. https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+  },
+  "removeLayer": {
+    "message": "Remove"
+  },
+  "saveSettings": {
+    "message": "Save settings"
+  },
+  "settingsSaved": {
+    "message": "Settings saved!"
+  },
+  "configureLayers": {
+    "message": "Configure your custom background layers in the extension popup first."
+  },
+  "chooseBackground": {
+    "message": "Choose a custom background layer"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "suggest": {
+    "message": "Suggest"
+  },
+  "analyzing": {
+    "message": "Analyzing..."
+  },
+  "noChanges": {
+    "message": "No changes found in the OSMChange file. Make sure you made changes in this session."
+  },
+  "commentFieldMissing": {
+    "message": "Comment field not found."
+  },
+  "commentError": {
+    "message": "Could not generate the comment. Please try again."
+  },
+  "unknownArea": {
+    "message": "unknown area"
+  },
+  "createdPrefix": {
+    "message": "Created"
+  },
+  "createdPrefixFeminine": {
+    "message": "Created"
+  },
+  "modifiedPrefix": {
+    "message": "Modified"
+  },
+  "modifiedPrefixFeminine": {
+    "message": "Modified"
+  },
+  "otherImprovements": {
+    "message": "other improvements"
+  },
+  "commentArea": {
+    "message": "in $1 area"
+  },
+  "tag_highway": {
+    "message": "highways"
+  },
+  "tag_building": {
+    "message": "buildings"
+  },
+  "tag_landuse": {
+    "message": "landuses"
+  },
+  "tag_natural": {
+    "message": "naturals"
+  },
+  "tag_leisure": {
+    "message": "leisures"
+  },
+  "tag_waterway": {
+    "message": "waterways"
+  },
+  "tag_amenity": {
+    "message": "amenities"
+  },
+  "tag_historic": {
+    "message": "historics"
+  },
+  "tag_shop": {
+    "message": "shops"
+  },
+  "tag_office": {
+    "message": "offices"
+  },
+  "tag_tourism": {
+    "message": "tourisms"
+  },
+  "tag_man_made": {
+    "message": "infrastructure"
+  },
+  "tag_barrier": {
+    "message": "barriers"
+  },
+  "tag_railway": {
+    "message": "railways"
+  },
+  "tag_route": {
+    "message": "routes"
+  },
+  "tag_place": {
+    "message": "places"
+  },
+  "tag_public_transport": {
+    "message": "public transport stops"
+  },
+  "tag_power": {
+    "message": "power infrastructure"
+  },
+  "tag_geometry": {
+    "message": "geometries"
+  },
+  "tag_natural_tree": {
+    "message": "trees"
+  },
+  "tag_natural_wood": {
+    "message": "woods"
+  },
+  "tag_natural_water": {
+    "message": "water bodies"
+  },
+  "tag_natural_scrub": {
+    "message": "scrubs"
+  },
+  "tag_natural_grassland": {
+    "message": "grasslands"
+  },
+  "tag_natural_wetland": {
+    "message": "wetlands"
+  },
+  "tag_natural_peak": {
+    "message": "peaks"
+  },
+  "tag_natural_cliff": {
+    "message": "cliffs"
+  },
+  "tag_leisure_park": {
+    "message": "parks"
+  },
+  "tag_leisure_playground": {
+    "message": "playgrounds"
+  },
+  "tag_leisure_pitch": {
+    "message": "sport pitches"
+  },
+  "tag_leisure_garden": {
+    "message": "gardens"
+  },
+  "tag_historic_memorial": {
+    "message": "memorials"
+  },
+  "tag_historic_archaeological_site": {
+    "message": "archaeological sites"
+  },
+  "tag_historic_ruins": {
+    "message": "ruins"
+  },
+  "tag_historic_castle": {
+    "message": "castles"
+  },
+  "tag_tourism_viewpoint": {
+    "message": "viewpoints"
+  },
+  "tag_tourism_information": {
+    "message": "visitor information points"
+  },
+  "tag_tourism_camp_site": {
+    "message": "campsites"
+  },
+  "tag_tourism_hotel": {
+    "message": "hotels"
+  },
+  "tag_man_made_tower": {
+    "message": "towers"
+  },
+  "tag_man_made_bridge": {
+    "message": "bridges"
+  },
+  "tag_landuse_forest": {
+    "message": "forests"
+  },
+  "tag_landuse_farmland": {
+    "message": "farmlands"
+  },
+  "tag_landuse_meadow": {
+    "message": "meadows"
+  },
+  "tag_amenity_parking": {
+    "message": "parking areas"
+  },
+  "tag_amenity_school": {
+    "message": "schools"
+  },
+  "tag_amenity_restaurant": {
+    "message": "restaurants"
+  },
+  "tag_amenity_drinking_water": {
+    "message": "drinking water points"
+  },
+  "tag_highway_footway": {
+    "message": "footways"
+  },
+  "tag_highway_path": {
+    "message": "paths"
+  },
+  "tag_highway_cycleway": {
+    "message": "cycleways"
+  },
+  "tag_highway_track": {
+    "message": "tracks"
+  },
+  "tag_waterway_stream": {
+    "message": "streams"
+  },
+  "tag_waterway_river": {
+    "message": "rivers"
+  },
+  "tag_railway_rail": {
+    "message": "rail lines"
+  },
+  "tag_railway_station": {
+    "message": "railway stations"
+  },
+  "tag_route_hiking": {
+    "message": "hiking routes"
+  },
+  "tag_route_bicycle": {
+    "message": "cycling routes"
+  },
+  "tag_place_village": {
+    "message": "villages"
+  },
+  "tag_place_locality": {
+    "message": "localities"
+  },
+  "overtureHeading": {
+    "message": "Overture buildings"
+  },
+  "loadArea": {
+    "message": "Load area"
+  },
+  "loadAreaTitle": {
+    "message": "Load buildings for the visible area once"
+  },
+  "loading": {
+    "message": "Loading..."
+  },
+  "loadingArea": {
+    "message": "Loading area..."
+  },
+  "addBuilding": {
+    "message": "Add (A)"
+  },
+  "addBuildingTitle": {
+    "message": "Create the selected building in iD"
+  },
+  "removeOverlay": {
+    "message": "Clear layer"
+  },
+  "dataLicenses": {
+    "message": "Data licenses"
+  },
+  "releaseMissing": {
+    "message": "No Overture release found in the catalog"
+  },
+  "zoomToShow": {
+    "message": "Area loaded · zoom to $1 to show buildings"
+  },
+  "buildingSelected": {
+    "message": "Building selected: press A or click Add"
+  },
+  "buildingsVisible": {
+    "message": "Area loaded · $1 buildings visible · click to select"
+  },
+  "zoomToLoad": {
+    "message": "Overture: zoom to $1 to load the area"
+  },
+  "zoomInToLoad": {
+    "message": "Zoom in to load the area"
+  },
+  "noCandidates": {
+    "message": "Area loaded · no candidate buildings"
+  },
+  "complexGeometry": {
+    "message": "Complex geometry: draw it manually in iD"
+  },
+  "bridgeUnavailable": {
+    "message": "iD connection unavailable: reload the page"
+  },
+  "invalidGeometry": {
+    "message": "Invalid or overly complex geometry"
+  },
+  "ringNotClosed": {
+    "message": "The outline is not closed"
+  },
+  "closeTutorial": {
+    "message": "Close the iD tutorial first"
+  },
+  "existingBuilding": {
+    "message": "An OSM building already exists or overlaps here: check the map"
+  },
+  "unknownSource": {
+    "message": "Building source not recognized"
+  },
+  "buildingCreated": {
+    "message": "Building created in iD. Check geometry and tags before saving."
+  },
+  "buildingFailed": {
+    "message": "Could not add the building"
+  },
+  "addBuildingAnnotation": {
+    "message": "Add building from Overture"
+  },
+  "tag_amenity_place_of_worship": {
+    "message": "places of worship"
+  },
+  "tag_historic_monument": {
+    "message": "monuments"
+  },
+  "tag_tourism_attraction": {
+    "message": "attractions"
+  },
+  "tag_type": {
+    "message": "relations"
+  },
+  "popupSubtitle": {
+    "message": "Custom Layers, Building Assistant & Changeset Comment Suggester"
+  },
+  "overtureMoveHelp": {
+    "message": "Drag to move. Double-click or press Home to reset; arrow keys move the panel."
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "appName": {
+    "message": "cOSMetics for iD"
+  },
+  "appDescription": {
+    "message": "Vlastné podkladové mapy, návrhy komentárov k úpravám a obrysy budov Overture v editore iD."
+  },
+  "popupTitle": {
+    "message": "cOSMetics for iD 1.82"
+  },
+  "overtureEnable": {
+    "message": "Zobraziť ovládanie budov Overture v iD"
+  },
+  "overtureEnableHelp": {
+    "message": "Zapnite ho, keď chcete prezerať a pridávať budovy. Voľba sa uloží automaticky."
+  },
+  "overtureDescription": {
+    "message": "<strong>Budovy Overture</strong><br>Táto funkcia umožňuje načítať vrstvu budov z Overture.<br>Po aktivácii pri priblížení 18 alebo vyššom stlačte <strong>Načítať oblasť</strong> a načítajte budovy v zobrazenej oblasti. Vyberte obrys a stlačte <strong>A</strong> alebo <strong>Pridať (A)</strong>.<br><strong>Pred uložením skontrolujte každú budovu:</strong> vytvorené obrysy môžu byť nepresné. Porovnajte ich so snímkami a údajmi OSM a podľa potreby opravte tvar a polohu. Ak posuniete mapu, opätovným stlačením tlačidla načítajte zobrazenú oblasť."
+  },
+  "backgroundDescription": {
+    "message": "<strong>Vlastné podkladové mapy</strong><br>Táto funkcia umožňuje uložiť ďalšie vlastné podkladové mapy nad rámec tej, ktorú poskytuje iD.<br>Pridajte sem podkladové mapy s názvom a šablónou URL. V iD otvorte <strong>Nastavenia podkladovej mapy</strong> (ikona vrstiev) a potom <strong>Upraviť vlastnú podkladovú mapu</strong> (tri bodky). V paneli vyberte uloženú vrstvu a zobrazte ju na mape.<br><strong>Upozornenie:</strong> uistite sa, že použitie vybraných podkladových máp na mapovanie v OpenStreetMap je povolené!"
+  },
+  "commentDescription": {
+    "message": "<strong>Návrhy komentárov k sadám zmien</strong><br>Táto funkcia navrhuje komentár k vašim sadám zmien, keď neviete, čo napísať. Analyzuje vaše úpravy a navrhne opis hlavných zmien.<br>Pri ukladaní v iD stlačte <strong>Navrhnúť</strong> a vytvorte komentár na základe úprav a aktuálnej oblasti. Pred odoslaním ho skontrolujte a opravte alebo ho nahraďte, ak nie je vhodný.<br><br>Ak máte návrhy alebo pripomienky, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">kontaktujte ma na OpenStreetMap</a>."
+  },
+  "commentsInEnglish": {
+    "message": "Komentáre v angličtine"
+  },
+  "commentsInEnglishHelp": {
+    "message": "Návrhy komentárov budú vždy v angličtine bez ohľadu na jazyk prehliadača."
+  },
+  "licensePrefix": {
+    "message": "Licencia:"
+  },
+  "addLayer": {
+    "message": "Pridať novú vrstvu"
+  },
+  "buttonText": {
+    "message": "Text tlačidla:"
+  },
+  "layerNameExample": {
+    "message": "napr. OSM Standard"
+  },
+  "urlTemplate": {
+    "message": "Šablóna URL:"
+  },
+  "urlExample": {
+    "message": "napr. https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+  },
+  "removeLayer": {
+    "message": "Odstrániť"
+  },
+  "saveSettings": {
+    "message": "Uložiť nastavenia"
+  },
+  "settingsSaved": {
+    "message": "Nastavenia uložené!"
+  },
+  "configureLayers": {
+    "message": "Najprv nastavte vlastné podkladové mapy v okne rozšírenia."
+  },
+  "chooseBackground": {
+    "message": "Vyberte vlastnú podkladovú mapu"
+  },
+  "close": {
+    "message": "Zavrieť"
+  },
+  "suggest": {
+    "message": "Navrhnúť"
+  },
+  "analyzing": {
+    "message": "Prebieha analýza..."
+  },
+  "noChanges": {
+    "message": "V súbore OSMChange sa nenašli žiadne zmeny. Skontrolujte, či ste v tejto relácii niečo upravili."
+  },
+  "commentFieldMissing": {
+    "message": "Pole komentára sa nenašlo."
+  },
+  "commentError": {
+    "message": "Komentár sa nepodarilo vytvoriť. Skúste to znova."
+  },
+  "unknownArea": {
+    "message": "neznáma oblasť"
+  },
+  "createdPrefix": {
+    "message": "Pridané"
+  },
+  "createdPrefixFeminine": {
+    "message": "Pridané"
+  },
+  "modifiedPrefix": {
+    "message": "Upravené"
+  },
+  "modifiedPrefixFeminine": {
+    "message": "Upravené"
+  },
+  "otherImprovements": {
+    "message": "ďalšie vylepšenia"
+  },
+  "commentArea": {
+    "message": "v oblasti $1"
+  },
+  "tag_highway": {
+    "message": "cesty a chodníky"
+  },
+  "tag_building": {
+    "message": "budovy"
+  },
+  "tag_landuse": {
+    "message": "využitie územia"
+  },
+  "tag_natural": {
+    "message": "natural"
+  },
+  "tag_leisure": {
+    "message": "rekreačné oblasti"
+  },
+  "tag_waterway": {
+    "message": "vodné toky"
+  },
+  "tag_amenity": {
+    "message": "služby"
+  },
+  "tag_historic": {
+    "message": "historické pamiatky"
+  },
+  "tag_shop": {
+    "message": "obchody"
+  },
+  "tag_office": {
+    "message": "kancelárie"
+  },
+  "tag_tourism": {
+    "message": "turistické zariadenia"
+  },
+  "tag_man_made": {
+    "message": "infraštruktúra"
+  },
+  "tag_barrier": {
+    "message": "prekážky"
+  },
+  "tag_railway": {
+    "message": "železnice"
+  },
+  "tag_route": {
+    "message": "trasy"
+  },
+  "tag_place": {
+    "message": "miesta"
+  },
+  "tag_public_transport": {
+    "message": "zastávky verejnej dopravy"
+  },
+  "tag_power": {
+    "message": "energetická infraštruktúra"
+  },
+  "tag_geometry": {
+    "message": "geometrie"
+  },
+  "tag_natural_tree": {
+    "message": "stromy"
+  },
+  "tag_natural_wood": {
+    "message": "lesy"
+  },
+  "tag_natural_water": {
+    "message": "vodné plochy"
+  },
+  "tag_natural_scrub": {
+    "message": "kroviny"
+  },
+  "tag_natural_grassland": {
+    "message": "trávnaté plochy"
+  },
+  "tag_natural_wetland": {
+    "message": "mokrade"
+  },
+  "tag_natural_peak": {
+    "message": "vrcholy"
+  },
+  "tag_natural_cliff": {
+    "message": "skalné steny"
+  },
+  "tag_leisure_park": {
+    "message": "parky"
+  },
+  "tag_leisure_playground": {
+    "message": "ihriská"
+  },
+  "tag_leisure_pitch": {
+    "message": "športové ihriská"
+  },
+  "tag_leisure_garden": {
+    "message": "záhrady"
+  },
+  "tag_historic_memorial": {
+    "message": "pamätníky"
+  },
+  "tag_historic_archaeological_site": {
+    "message": "archeologické lokality"
+  },
+  "tag_historic_ruins": {
+    "message": "ruiny"
+  },
+  "tag_historic_castle": {
+    "message": "hrady"
+  },
+  "tag_tourism_viewpoint": {
+    "message": "vyhliadky"
+  },
+  "tag_tourism_information": {
+    "message": "turistické informačné body"
+  },
+  "tag_tourism_camp_site": {
+    "message": "kempingy"
+  },
+  "tag_tourism_hotel": {
+    "message": "hotely"
+  },
+  "tag_man_made_tower": {
+    "message": "veže"
+  },
+  "tag_man_made_bridge": {
+    "message": "mosty"
+  },
+  "tag_landuse_forest": {
+    "message": "lesy"
+  },
+  "tag_landuse_farmland": {
+    "message": "poľnohospodárska pôda"
+  },
+  "tag_landuse_meadow": {
+    "message": "lúky"
+  },
+  "tag_amenity_parking": {
+    "message": "parkoviská"
+  },
+  "tag_amenity_school": {
+    "message": "školy"
+  },
+  "tag_amenity_restaurant": {
+    "message": "reštaurácie"
+  },
+  "tag_amenity_drinking_water": {
+    "message": "zdroje pitnej vody"
+  },
+  "tag_highway_footway": {
+    "message": "chodníky"
+  },
+  "tag_highway_path": {
+    "message": "turistické chodníky"
+  },
+  "tag_highway_cycleway": {
+    "message": "cyklotrasy"
+  },
+  "tag_highway_track": {
+    "message": "poľné a lesné cesty"
+  },
+  "tag_waterway_stream": {
+    "message": "streams"
+  },
+  "tag_waterway_river": {
+    "message": "rivers"
+  },
+  "tag_railway_rail": {
+    "message": "železničné trate"
+  },
+  "tag_railway_station": {
+    "message": "železničné stanice"
+  },
+  "tag_route_hiking": {
+    "message": "turistické trasy"
+  },
+  "tag_route_bicycle": {
+    "message": "cyklistické trasy"
+  },
+  "tag_place_village": {
+    "message": "dediny"
+  },
+  "tag_place_locality": {
+    "message": "miestne názvy"
+  },
+  "overtureHeading": {
+    "message": "Budovy Overture"
+  },
+  "loadArea": {
+    "message": "Načítať oblasť"
+  },
+  "loadAreaTitle": {
+    "message": "Jednorazovo načítať budovy vo viditeľnej oblasti"
+  },
+  "loading": {
+    "message": "Načítava sa…"
+  },
+  "loadingArea": {
+    "message": "Načítava sa oblasť…"
+  },
+  "addBuilding": {
+    "message": "Pridať (A)"
+  },
+  "addBuildingTitle": {
+    "message": "Vytvoriť vybranú budovu v iD"
+  },
+  "removeOverlay": {
+    "message": "Vymazať vrstvu"
+  },
+  "dataLicenses": {
+    "message": "Licencie údajov"
+  },
+  "releaseMissing": {
+    "message": "V katalógu sa nenašla verzia Overture"
+  },
+  "zoomToShow": {
+    "message": "Oblasť načítaná · na zobrazenie budov priblížte na $1"
+  },
+  "buildingSelected": {
+    "message": "Budova vybraná: stlačte A alebo kliknite na Pridať"
+  },
+  "buildingsVisible": {
+    "message": "Oblasť načítaná · viditeľné budovy: $1 · kliknutím vyberte"
+  },
+  "zoomToLoad": {
+    "message": "Overture: na načítanie oblasti priblížte na $1"
+  },
+  "zoomInToLoad": {
+    "message": "Priblížte mapu, aby bolo možné načítať oblasť"
+  },
+  "noCandidates": {
+    "message": "Oblasť načítaná · bez vhodných budov"
+  },
+  "complexGeometry": {
+    "message": "Zložitá geometria: nakreslite ju ručne v iD"
+  },
+  "bridgeUnavailable": {
+    "message": "Spojenie s iD nie je dostupné: obnovte stránku"
+  },
+  "invalidGeometry": {
+    "message": "Neplatná alebo príliš zložitá geometria"
+  },
+  "ringNotClosed": {
+    "message": "Obrys nie je uzavretý"
+  },
+  "closeTutorial": {
+    "message": "Najprv zatvorte úvodného sprievodcu iD"
+  },
+  "existingBuilding": {
+    "message": "Budova OSM už existuje alebo sa prekrýva: skontrolujte mapu"
+  },
+  "unknownSource": {
+    "message": "Zdroj budovy sa nerozpoznal"
+  },
+  "buildingCreated": {
+    "message": "Budova vytvorená v iD. Pred uložením skontrolujte geometriu a značky."
+  },
+  "buildingFailed": {
+    "message": "Budovu sa nepodarilo pridať"
+  },
+  "addBuildingAnnotation": {
+    "message": "Pridať budovu z Overture"
+  },
+  "tag_amenity_place_of_worship": {
+    "message": "places of worship"
+  },
+  "tag_historic_monument": {
+    "message": "monuments"
+  },
+  "tag_tourism_attraction": {
+    "message": "attractions"
+  },
+  "tag_type": {
+    "message": "relations"
+  },
+  "popupSubtitle": {
+    "message": "Vlastné podkladové mapy, asistent budov a návrhy komentárov k sadám zmien"
+  },
+  "overtureMoveHelp": {
+    "message": "Presunutím premiestnite panel. Dvojklik alebo Home obnoví polohu; šípky posúvajú panel."
+  }
+}

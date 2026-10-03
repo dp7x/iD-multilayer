@@ -1,23 +1,54 @@
 {
     "manifest_version": 3,
-    "name": "cOSMetics: Custom Layers & Comment Suggester for iD",
-    "version": "1.61",
-    "description": "An extension to let you easily choose from multiple custom layers and suggest changeset comments",
+    "name": "__MSG_appName__",
+    "version": "1.82",
+    "description": "__MSG_appDescription__",
+    "default_locale": "en",
     "permissions": [
-        "storage"   
+        "storage"
     ],
     "host_permissions": [
-        "https://nominatim.openstreetmap.org/*"
-    ],	
+        "https://nominatim.openstreetmap.org/*",
+        "https://stac.overturemaps.org/*",
+        "https://overturemaps-extras-us-west-2.s3.us-west-2.amazonaws.com/*"
+    ],
     "action": {
         "default_popup": "popup.html",
         "default_icon": "icon.png"
     },
     "content_scripts": [
         {
-      "matches": ["https://www.openstreetmap.org/edit*", "https://www.openstreetmap.org/id"],
-      "js": ["content.js"],
-      "all_frames": true  
+            "matches": [
+                "https://www.openstreetmap.org/edit*",
+                "https://www.openstreetmap.org/id"
+            ],
+            "js": [
+                "src/id-bridge.js"
+            ],
+            "run_at": "document_start",
+            "world": "MAIN",
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "https://www.openstreetmap.org/edit*",
+                "https://www.openstreetmap.org/id"
+            ],
+            "js": [
+                "content.js",
+                "dist/overture.js"
+            ],
+            "all_frames": true
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "_locales/en/messages.json"
+            ],
+            "matches": [
+                "https://www.openstreetmap.org/*"
+            ]
         }
     ],
     "icons": {

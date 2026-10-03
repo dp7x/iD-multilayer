@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>cOSMetics: Custom Layer & Comment Suggester for iD</title>
+    <meta charset="UTF-8">
+    <title>cOSMetics for iD</title>
     <style>
         body {
             width: 320px;  
@@ -22,7 +23,14 @@
         h3 {
             text-align: center;
             color: #4CAF50; 
-            margin-bottom: 20px;
+            margin-bottom: 6px;
+        }
+        .popup-subtitle {
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            line-height: 1.5;
+            margin: 0 0 20px;
         }
         .description {
             font-size: 13px;
@@ -92,42 +100,58 @@
         .credits a:hover {
             text-decoration: underline;
         }
+        .overture-setting {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+            font-size: 13px;
+        }
+        .overture-setting label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .overture-setting input { accent-color: #4CAF50; }
+        .overture-setting p { margin: 7px 0 0 24px; color: #555; line-height: 1.4; }
     </style>
 </head>
 <body>
     <div class="logo-container">
-        <img src="cosmetics_logo.png" alt="cOSMetics Logo">
+        <img src="cOSMetics_logo.png" alt="cOSMetics Logo">
     </div>
 
-    <h3>cOSMetics: Custom Layer & Comment Suggester for iD 1.54</h3>
+    <h3 data-i18n="popupTitle">cOSMetics for iD 1.82</h3>
+    <p class="popup-subtitle" data-i18n="popupSubtitle">Custom Layers, Building Assistant &amp; Changeset Comment Suggester</p>
 
-	<p class="description">
-		<strong>Custom Background Layers settings</strong><br>
-		Add custom background map layers to the OpenStreetMap iD editor.
-		Define your preferred map layers below with a name and URL template.<br>
-		Once saved, open the iD editor, click on the <strong>"Background Settings"</strong> button (layers icon), then
-		on <strong>"Edit custom background"</strong> (three dots icon).<br>
-		Your custom layers will appear as buttons in the new pop-up panel. Click a button to instantly apply your desired background!
-	</p>
+    <div class="overture-setting">
+        <label><input id="overtureEnabled" type="checkbox"> <span data-i18n="overtureEnable">Mostra i controlli Edifici Overture in iD</span></label>
+        <p data-i18n="overtureEnableHelp">Attivali solo quando vuoi consultare e aggiungere edifici. La scelta viene salvata automaticamente.</p>
+    </div>
+
+    <p class="description" data-i18n-html="overtureDescription"></p>
+
+    <p class="description" data-i18n-html="backgroundDescription"></p>
 
     <form id="settingsForm">
         </form>
 
-    <button id="saveButton">Save Settings</button>
+    <button id="saveButton" data-i18n="saveSettings">Save Settings</button>
 	
-	<p class="description" style="margin-top: 15px;">
-		<strong>Changeset Comment Suggester</strong><br>
-		Automatically generates descriptive comments for your changesets.<br>
-		When saving in iD Editor, click the <strong>"Suggest"</strong> button to generate a comment like:<br>
-		<code>"landuses, buildings in XYZ area"</code><br>
-		The extension analyzes your changes (landuse, natural, building, amenity, etc.) and detects the current area.
-		<br>For suggestions or feedback, <a href="https://www.openstreetmap.org/messages/new/dp7" target="_blank">contact me on OpenStreetMap</a>.
-	</p>	
+    <p class="description" style="margin-top: 15px;" data-i18n-html="commentDescription"></p>
+
+    <div class="overture-setting">
+        <label><input id="commentsInEnglish" type="checkbox"> <span data-i18n="commentsInEnglish">Commenti in lingua inglese</span></label>
+        <p data-i18n="commentsInEnglishHelp">Usa sempre l’inglese per i commenti suggeriti, indipendentemente dalla lingua del browser.</p>
+    </div>
 
     <div id="feedback" class="feedback"></div>
 
     <div class="credits">
-        <h6>&copy; 2024 <strong>dp7</strong>@<a href="https://www.openstreetmap.org/user/dp7" target="_blank">OpenStreetMap</a><br>Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a></h6>
+        <h6>&copy; 2024 <strong>dp7</strong>@<a href="https://www.openstreetmap.org/user/dp7" target="_blank">OpenStreetMap</a><br><span data-i18n="licensePrefix">Licensed under the</span> <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a></h6>
     </div>
 
     <script src="popup.js"></script>

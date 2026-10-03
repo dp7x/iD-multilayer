@@ -1,0 +1,750 @@
+{
+  "format": "cosmetics-comment-matrix",
+  "schemaVersion": 1,
+  "sourceVersion": "1.80",
+  "tags": [
+    {
+      "key": "landuse",
+      "labels": {
+        "en": "landuses",
+        "it": "usi del suolo",
+        "sk": "využitie územia",
+        "de": "Landnutzungen",
+        "fr": "usages du sol",
+        "es": "usos del suelo"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "forest",
+          "labels": {
+            "en": "forests",
+            "it": "foreste",
+            "sk": "lesy",
+            "de": "Forstflächen",
+            "fr": "forêts",
+            "es": "terrenos forestales"
+          }
+        },
+        {
+          "value": "farmland",
+          "labels": {
+            "en": "farmlands",
+            "it": "terreni agricoli",
+            "sk": "poľnohospodárska pôda",
+            "de": "Ackerflächen",
+            "fr": "terres agricoles",
+            "es": "terrenos agrícolas"
+          }
+        },
+        {
+          "value": "meadow",
+          "labels": {
+            "en": "meadows",
+            "it": "coltivazioni erbacee",
+            "sk": "lúky",
+            "de": "Wiesen",
+            "fr": "prairies cultivées",
+            "es": "prados"
+          }
+        }
+      ]
+    },
+    {
+      "key": "natural",
+      "labels": {
+        "en": "naturals",
+        "it": "elementi naturali",
+        "sk": "natural",
+        "de": "Naturobjekte",
+        "fr": "éléments naturels",
+        "es": "elementos naturales"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "tree",
+          "labels": {
+            "en": "trees",
+            "it": "alberi",
+            "sk": "stromy",
+            "de": "Bäume",
+            "fr": "arbres",
+            "es": "árboles"
+          }
+        },
+        {
+          "value": "wood",
+          "labels": {
+            "en": "woods",
+            "it": "boschi",
+            "sk": "lesy",
+            "de": "Wälder",
+            "fr": "bois",
+            "es": "bosques"
+          }
+        },
+        {
+          "value": "water",
+          "labels": {
+            "en": "water bodies",
+            "it": "specchi d’acqua",
+            "sk": "vodné plochy",
+            "de": "Wasserflächen",
+            "fr": "plans d’eau",
+            "es": "masas de agua"
+          }
+        },
+        {
+          "value": "scrub",
+          "labels": {
+            "en": "scrubs",
+            "it": "arbusteti",
+            "sk": "kroviny",
+            "de": "Gebüsche",
+            "fr": "broussailles",
+            "es": "matorrales"
+          }
+        },
+        {
+          "value": "grassland",
+          "labels": {
+            "en": "grasslands",
+            "it": "praterie",
+            "sk": "trávnaté plochy",
+            "de": "Grasflächen",
+            "fr": "prairies naturelles",
+            "es": "pastizales"
+          }
+        },
+        {
+          "value": "wetland",
+          "labels": {
+            "en": "wetlands",
+            "it": "zone umide",
+            "sk": "mokrade",
+            "de": "Feuchtgebiete",
+            "fr": "zones humides",
+            "es": "humedales"
+          }
+        },
+        {
+          "value": "peak",
+          "labels": {
+            "en": "peaks",
+            "it": "cime",
+            "sk": "vrcholy",
+            "de": "Gipfel",
+            "fr": "sommets",
+            "es": "cumbres"
+          }
+        },
+        {
+          "value": "cliff",
+          "labels": {
+            "en": "cliffs",
+            "it": "pareti rocciose",
+            "sk": "skalné steny",
+            "de": "Felswände",
+            "fr": "falaises",
+            "es": "paredes rocosas"
+          }
+        }
+      ]
+    },
+    {
+      "key": "building",
+      "labels": {
+        "en": "buildings",
+        "it": "edifici",
+        "sk": "budovy",
+        "de": "Gebäude",
+        "fr": "bâtiments",
+        "es": "edificios"
+      },
+      "modified": "values",
+      "values": []
+    },
+    {
+      "key": "highway",
+      "labels": {
+        "en": "highways",
+        "it": "strade e percorsi",
+        "sk": "cesty a chodníky",
+        "de": "Straßen und Wege",
+        "fr": "voies de circulation",
+        "es": "vías"
+      },
+      "modified": "key",
+      "values": [
+        {
+          "value": "footway",
+          "labels": {
+            "en": "footways",
+            "it": "percorsi pedonali",
+            "sk": "chodníky",
+            "de": "Fußwege",
+            "fr": "chemins piétons",
+            "es": "vías peatonales"
+          }
+        },
+        {
+          "value": "path",
+          "labels": {
+            "en": "paths",
+            "it": "sentieri",
+            "sk": "turistické chodníky",
+            "de": "Pfade",
+            "fr": "sentiers",
+            "es": "senderos"
+          }
+        },
+        {
+          "value": "cycleway",
+          "labels": {
+            "en": "cycleways",
+            "it": "piste ciclabili",
+            "sk": "cyklotrasy",
+            "de": "Radwege",
+            "fr": "pistes cyclables",
+            "es": "vías ciclistas"
+          }
+        },
+        {
+          "value": "track",
+          "labels": {
+            "en": "tracks",
+            "it": "strade agricole e forestali",
+            "sk": "poľné a lesné cesty",
+            "de": "Wirtschaftswege",
+            "fr": "chemins agricoles et forestiers",
+            "es": "caminos agrícolas y forestales"
+          }
+        }
+      ]
+    },
+    {
+      "key": "waterway",
+      "labels": {
+        "en": "waterways",
+        "it": "corsi d’acqua",
+        "sk": "vodné toky",
+        "de": "Wasserläufe",
+        "fr": "cours d’eau",
+        "es": "cursos de agua"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "river",
+          "labels": {
+            "en": "rivers",
+            "it": "fiumi",
+            "sk": "rivers",
+            "de": "Flüsse",
+            "fr": "rivières",
+            "es": "ríos"
+          }
+        },
+        {
+          "value": "stream",
+          "labels": {
+            "en": "streams",
+            "it": "torrenti",
+            "sk": "streams",
+            "de": "Bäche",
+            "fr": "ruisseaux",
+            "es": "arroyos"
+          }
+        }
+      ]
+    },
+    {
+      "key": "leisure",
+      "labels": {
+        "en": "leisures",
+        "it": "aree ricreative",
+        "sk": "rekreačné oblasti",
+        "de": "Freizeitobjekte",
+        "fr": "éléments de loisirs",
+        "es": "elementos recreativos"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "park",
+          "labels": {
+            "en": "parks",
+            "it": "parchi",
+            "sk": "parky",
+            "de": "Parks",
+            "fr": "parcs",
+            "es": "parques"
+          }
+        },
+        {
+          "value": "playground",
+          "labels": {
+            "en": "playgrounds",
+            "it": "aree giochi",
+            "sk": "ihriská",
+            "de": "Spielplätze",
+            "fr": "aires de jeux",
+            "es": "áreas de juegos"
+          }
+        },
+        {
+          "value": "pitch",
+          "labels": {
+            "en": "sport pitches",
+            "it": "campi sportivi",
+            "sk": "športové ihriská",
+            "de": "Sportplätze",
+            "fr": "terrains de sport",
+            "es": "campos deportivos"
+          }
+        },
+        {
+          "value": "garden",
+          "labels": {
+            "en": "gardens",
+            "it": "giardini",
+            "sk": "záhrady",
+            "de": "Gärten",
+            "fr": "jardins",
+            "es": "jardines"
+          }
+        }
+      ]
+    },
+    {
+      "key": "amenity",
+      "labels": {
+        "en": "amenities",
+        "it": "servizi",
+        "sk": "služby",
+        "de": "Einrichtungen",
+        "fr": "équipements",
+        "es": "servicios"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "parking",
+          "labels": {
+            "en": "parking areas",
+            "it": "parcheggi",
+            "sk": "parkoviská",
+            "de": "Parkplätze",
+            "fr": "parkings",
+            "es": "aparcamientos"
+          }
+        },
+        {
+          "value": "school",
+          "labels": {
+            "en": "schools",
+            "it": "scuole",
+            "sk": "školy",
+            "de": "Schulen",
+            "fr": "écoles",
+            "es": "escuelas"
+          }
+        },
+        {
+          "value": "restaurant",
+          "labels": {
+            "en": "restaurants",
+            "it": "ristoranti",
+            "sk": "reštaurácie",
+            "de": "Restaurants",
+            "fr": "restaurants",
+            "es": "restaurantes"
+          }
+        },
+        {
+          "value": "drinking_water",
+          "labels": {
+            "en": "drinking water points",
+            "it": "punti di acqua potabile",
+            "sk": "zdroje pitnej vody",
+            "de": "Trinkwasserstellen",
+            "fr": "points d’eau potable",
+            "es": "puntos de agua potable"
+          }
+        },
+        {
+          "value": "place_of_worship",
+          "labels": {
+            "en": "places of worship",
+            "it": "luoghi di culto",
+            "sk": "places of worship",
+            "de": "Gotteshäuser",
+            "fr": "lieux de culte",
+            "es": "lugares de culto"
+          }
+        }
+      ]
+    },
+    {
+      "key": "historic",
+      "labels": {
+        "en": "historics",
+        "it": "elementi storici",
+        "sk": "historické pamiatky",
+        "de": "historische Objekte",
+        "fr": "éléments historiques",
+        "es": "elementos históricos"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "memorial",
+          "labels": {
+            "en": "memorials",
+            "it": "memoriali",
+            "sk": "pamätníky",
+            "de": "Gedenkstätten",
+            "fr": "mémoriaux",
+            "es": "memoriales"
+          }
+        },
+        {
+          "value": "archaeological_site",
+          "labels": {
+            "en": "archaeological sites",
+            "it": "siti archeologici",
+            "sk": "archeologické lokality",
+            "de": "archäologische Stätten",
+            "fr": "sites archéologiques",
+            "es": "yacimientos arqueológicos"
+          }
+        },
+        {
+          "value": "ruins",
+          "labels": {
+            "en": "ruins",
+            "it": "rovine",
+            "sk": "ruiny",
+            "de": "Ruinen",
+            "fr": "ruines",
+            "es": "ruinas"
+          }
+        },
+        {
+          "value": "castle",
+          "labels": {
+            "en": "castles",
+            "it": "castelli",
+            "sk": "hrady",
+            "de": "Burgen und Schlösser",
+            "fr": "châteaux",
+            "es": "castillos"
+          }
+        },
+        {
+          "value": "monument",
+          "labels": {
+            "en": "monuments",
+            "it": "monumenti",
+            "sk": "monuments",
+            "de": "Denkmäler",
+            "fr": "monuments",
+            "es": "monumentos"
+          }
+        }
+      ]
+    },
+    {
+      "key": "shop",
+      "labels": {
+        "en": "shops",
+        "it": "negozi",
+        "sk": "obchody",
+        "de": "Geschäfte",
+        "fr": "commerces",
+        "es": "comercios"
+      },
+      "modified": "values",
+      "values": []
+    },
+    {
+      "key": "office",
+      "labels": {
+        "en": "offices",
+        "it": "uffici",
+        "sk": "kancelárie",
+        "de": "Büros",
+        "fr": "bureaux",
+        "es": "oficinas"
+      },
+      "modified": "values",
+      "values": []
+    },
+    {
+      "key": "tourism",
+      "labels": {
+        "en": "tourisms",
+        "it": "elementi turistici",
+        "sk": "turistické zariadenia",
+        "de": "Tourismusobjekte",
+        "fr": "éléments touristiques",
+        "es": "elementos turísticos"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "viewpoint",
+          "labels": {
+            "en": "viewpoints",
+            "it": "punti panoramici",
+            "sk": "vyhliadky",
+            "de": "Aussichtspunkte",
+            "fr": "points de vue",
+            "es": "miradores"
+          }
+        },
+        {
+          "value": "information",
+          "labels": {
+            "en": "visitor information points",
+            "it": "punti informativi",
+            "sk": "turistické informačné body",
+            "de": "Touristeninformationen",
+            "fr": "points d’information touristique",
+            "es": "puntos de información turística"
+          }
+        },
+        {
+          "value": "camp_site",
+          "labels": {
+            "en": "campsites",
+            "it": "campeggi",
+            "sk": "kempingy",
+            "de": "Campingplätze",
+            "fr": "campings",
+            "es": "campings"
+          }
+        },
+        {
+          "value": "hotel",
+          "labels": {
+            "en": "hotels",
+            "it": "alberghi",
+            "sk": "hotely",
+            "de": "Hotels",
+            "fr": "hôtels",
+            "es": "hoteles"
+          }
+        },
+        {
+          "value": "attraction",
+          "labels": {
+            "en": "attractions",
+            "it": "attrazioni turistiche",
+            "sk": "attractions",
+            "de": "Sehenswürdigkeiten",
+            "fr": "attractions",
+            "es": "atracciones turísticas"
+          }
+        }
+      ]
+    },
+    {
+      "key": "man_made",
+      "labels": {
+        "en": "infrastructure",
+        "it": "strutture artificiali",
+        "sk": "infraštruktúra",
+        "de": "Infrastruktur",
+        "fr": "infrastructures",
+        "es": "infraestructuras"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "tower",
+          "labels": {
+            "en": "towers",
+            "it": "torri",
+            "sk": "veže",
+            "de": "Türme",
+            "fr": "tours",
+            "es": "torres"
+          }
+        },
+        {
+          "value": "bridge",
+          "labels": {
+            "en": "bridges",
+            "it": "ponti",
+            "sk": "mosty",
+            "de": "Brücken",
+            "fr": "ponts",
+            "es": "puentes"
+          }
+        }
+      ]
+    },
+    {
+      "key": "barrier",
+      "labels": {
+        "en": "barriers",
+        "it": "barriere",
+        "sk": "prekážky",
+        "de": "Barrieren",
+        "fr": "barrières",
+        "es": "barreras"
+      },
+      "modified": "values",
+      "values": []
+    },
+    {
+      "key": "railway",
+      "labels": {
+        "en": "railways",
+        "it": "ferrovie",
+        "sk": "železnice",
+        "de": "Eisenbahnen",
+        "fr": "éléments ferroviaires",
+        "es": "elementos ferroviarios"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "rail",
+          "labels": {
+            "en": "rail lines",
+            "it": "linee ferroviarie",
+            "sk": "železničné trate",
+            "de": "Gleise",
+            "fr": "voies ferrées",
+            "es": "vías férreas"
+          }
+        },
+        {
+          "value": "station",
+          "labels": {
+            "en": "railway stations",
+            "it": "stazioni ferroviarie",
+            "sk": "železničné stanice",
+            "de": "Bahnhöfe",
+            "fr": "gares",
+            "es": "estaciones ferroviarias"
+          }
+        }
+      ]
+    },
+    {
+      "key": "route",
+      "labels": {
+        "en": "routes",
+        "it": "percorsi",
+        "sk": "trasy",
+        "de": "Routen",
+        "fr": "itinéraires",
+        "es": "itinerarios"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "hiking",
+          "labels": {
+            "en": "hiking routes",
+            "it": "itinerari escursionistici",
+            "sk": "turistické trasy",
+            "de": "Wanderrouten",
+            "fr": "itinéraires de randonnée",
+            "es": "itinerarios de senderismo"
+          }
+        },
+        {
+          "value": "bicycle",
+          "labels": {
+            "en": "cycling routes",
+            "it": "itinerari ciclabili",
+            "sk": "cyklistické trasy",
+            "de": "Radrouten",
+            "fr": "itinéraires cyclables",
+            "es": "itinerarios ciclistas"
+          }
+        }
+      ]
+    },
+    {
+      "key": "place",
+      "labels": {
+        "en": "places",
+        "it": "località",
+        "sk": "miesta",
+        "de": "Orte",
+        "fr": "localités",
+        "es": "localidades"
+      },
+      "modified": "values",
+      "values": [
+        {
+          "value": "village",
+          "labels": {
+            "en": "villages",
+            "it": "borghi",
+            "sk": "dediny",
+            "de": "Dörfer",
+            "fr": "villages",
+            "es": "pueblos"
+          }
+        },
+        {
+          "value": "locality",
+          "labels": {
+            "en": "localities",
+            "it": "località",
+            "sk": "miestne názvy",
+            "de": "Örtlichkeiten",
+            "fr": "lieux-dits",
+            "es": "parajes"
+          }
+        }
+      ]
+    },
+    {
+      "key": "public_transport",
+      "labels": {
+        "en": "public transport stops",
+        "it": "fermate del trasporto pubblico",
+        "sk": "zastávky verejnej dopravy",
+        "de": "Haltestellen des öffentlichen Verkehrs",
+        "fr": "arrêts de transport public",
+        "es": "paradas de transporte público"
+      },
+      "modified": "values",
+      "values": []
+    },
+    {
+      "key": "power",
+      "labels": {
+        "en": "power infrastructure",
+        "it": "infrastrutture elettriche",
+        "sk": "energetická infraštruktúra",
+        "de": "Strominfrastruktur",
+        "fr": "infrastructures électriques",
+        "es": "infraestructuras eléctricas"
+      },
+      "modified": "values",
+      "values": []
+    },
+    {
+      "key": "type",
+      "labels": {
+        "en": "relations",
+        "it": "relazioni",
+        "sk": "relations",
+        "de": "Relationen",
+        "fr": "relations",
+        "es": "relaciones"
+      },
+      "modified": "values",
+      "values": []
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "appName": {
+    "message": "cOSMetics for iD"
+  },
+  "appDescription": {
+    "message": "Fonds personnalisés, suggestions de commentaires de groupes de modifications et contours de bâtiments Overture pour iD."
+  },
+  "popupTitle": {
+    "message": "cOSMetics for iD 1.82"
+  },
+  "overtureEnable": {
+    "message": "Afficher les commandes des bâtiments Overture dans iD"
+  },
+  "overtureEnableHelp": {
+    "message": "Activez-les pour examiner et ajouter des bâtiments. Ce choix est enregistré automatiquement."
+  },
+  "overtureDescription": {
+    "message": "<strong>Bâtiments Overture</strong><br>Cette fonctionnalité permet de charger la couche de bâtiments d’Overture.<br>Une fois activée, au niveau de zoom 18 ou supérieur, cliquez sur <strong>Charger la zone</strong> pour charger les bâtiments de la zone visible. Sélectionnez un contour et appuyez sur <strong>A</strong> ou cliquez sur <strong>Ajouter (A)</strong>.<br><strong>Vérifiez chaque bâtiment avant d’enregistrer :</strong> les contours générés peuvent être imprécis. Comparez-les avec l’imagerie et les données OSM et corrigez leur forme et leur position si nécessaire. Si vous déplacez la carte, cliquez à nouveau sur le bouton pour charger la zone visible."
+  },
+  "backgroundDescription": {
+    "message": "<strong>Fonds personnalisés</strong><br>Cette fonctionnalité permet d’enregistrer des fonds personnalisés supplémentaires, en plus de celui prévu par iD.<br>Ajoutez ici des fonds avec un nom et un modèle d’URL. Dans iD, ouvrez les <strong>Paramètres du fond</strong> (icône des couches), puis <strong>Modifier le fond personnalisé</strong> (trois points). Choisissez un fond enregistré dans le panneau pour l’afficher sur la carte.<br><strong>Attention :</strong> assurez-vous que les fonds utilisés sont autorisés pour la cartographie dans OpenStreetMap !"
+  },
+  "commentDescription": {
+    "message": "<strong>Suggestions de commentaires de groupes de modifications</strong><br>Cette fonctionnalité propose un commentaire pour vos groupes de modifications lorsque vous ne savez pas quoi écrire. Elle analyse vos modifications et propose une description des principales.<br>Lors de l’enregistrement dans iD, cliquez sur <strong>Suggérer</strong> pour générer un commentaire à partir des modifications et de la zone actuelle. Vérifiez-le et corrigez-le avant l’envoi, ou remplacez-le si vous ne le trouvez pas adapté.<br><br>Pour toute suggestion ou remarque, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">contactez-moi sur OpenStreetMap</a>."
+  },
+  "commentsInEnglish": {
+    "message": "Commentaires en anglais"
+  },
+  "commentsInEnglishHelp": {
+    "message": "Toujours rédiger les commentaires proposés en anglais, quelle que soit la langue du navigateur."
+  },
+  "licensePrefix": {
+    "message": "Licence :"
+  },
+  "addLayer": {
+    "message": "Ajouter un fond"
+  },
+  "buttonText": {
+    "message": "Texte du bouton :"
+  },
+  "layerNameExample": {
+    "message": "p. ex. OSM Standard"
+  },
+  "urlTemplate": {
+    "message": "Modèle d’URL :"
+  },
+  "urlExample": {
+    "message": "p. ex. https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+  },
+  "removeLayer": {
+    "message": "Supprimer"
+  },
+  "saveSettings": {
+    "message": "Enregistrer les paramètres"
+  },
+  "settingsSaved": {
+    "message": "Paramètres enregistrés !"
+  },
+  "configureLayers": {
+    "message": "Configurez d’abord vos fonds personnalisés dans la fenêtre de l’extension."
+  },
+  "chooseBackground": {
+    "message": "Choisir un fond personnalisé"
+  },
+  "close": {
+    "message": "Fermer"
+  },
+  "suggest": {
+    "message": "Suggérer"
+  },
+  "analyzing": {
+    "message": "Analyse en cours…"
+  },
+  "noChanges": {
+    "message": "Aucune modification trouvée dans le fichier OSMChange. Vérifiez que vous avez effectué des modifications dans cette session."
+  },
+  "commentFieldMissing": {
+    "message": "Champ de commentaire introuvable."
+  },
+  "commentError": {
+    "message": "Impossible de générer le commentaire. Veuillez réessayer."
+  },
+  "unknownArea": {
+    "message": "zone inconnue"
+  },
+  "createdPrefix": {
+    "message": "Création de"
+  },
+  "createdPrefixFeminine": {
+    "message": "Création de"
+  },
+  "modifiedPrefix": {
+    "message": "Modification de"
+  },
+  "modifiedPrefixFeminine": {
+    "message": "Modification de"
+  },
+  "otherImprovements": {
+    "message": "autres améliorations"
+  },
+  "commentArea": {
+    "message": "dans la zone de $1"
+  },
+  "tag_highway": {
+    "message": "voies de circulation"
+  },
+  "tag_building": {
+    "message": "bâtiments"
+  },
+  "tag_landuse": {
+    "message": "usages du sol"
+  },
+  "tag_natural": {
+    "message": "éléments naturels"
+  },
+  "tag_leisure": {
+    "message": "éléments de loisirs"
+  },
+  "tag_waterway": {
+    "message": "cours d’eau"
+  },
+  "tag_amenity": {
+    "message": "équipements"
+  },
+  "tag_historic": {
+    "message": "éléments historiques"
+  },
+  "tag_shop": {
+    "message": "commerces"
+  },
+  "tag_office": {
+    "message": "bureaux"
+  },
+  "tag_tourism": {
+    "message": "éléments touristiques"
+  },
+  "tag_man_made": {
+    "message": "infrastructures"
+  },
+  "tag_barrier": {
+    "message": "barrières"
+  },
+  "tag_railway": {
+    "message": "éléments ferroviaires"
+  },
+  "tag_route": {
+    "message": "itinéraires"
+  },
+  "tag_place": {
+    "message": "localités"
+  },
+  "tag_public_transport": {
+    "message": "arrêts de transport public"
+  },
+  "tag_power": {
+    "message": "infrastructures électriques"
+  },
+  "tag_geometry": {
+    "message": "géométries"
+  },
+  "tag_natural_tree": {
+    "message": "arbres"
+  },
+  "tag_natural_wood": {
+    "message": "bois"
+  },
+  "tag_natural_water": {
+    "message": "plans d’eau"
+  },
+  "tag_natural_scrub": {
+    "message": "broussailles"
+  },
+  "tag_natural_grassland": {
+    "message": "prairies naturelles"
+  },
+  "tag_natural_wetland": {
+    "message": "zones humides"
+  },
+  "tag_natural_peak": {
+    "message": "sommets"
+  },
+  "tag_natural_cliff": {
+    "message": "falaises"
+  },
+  "tag_leisure_park": {
+    "message": "parcs"
+  },
+  "tag_leisure_playground": {
+    "message": "aires de jeux"
+  },
+  "tag_leisure_pitch": {
+    "message": "terrains de sport"
+  },
+  "tag_leisure_garden": {
+    "message": "jardins"
+  },
+  "tag_historic_memorial": {
+    "message": "mémoriaux"
+  },
+  "tag_historic_archaeological_site": {
+    "message": "sites archéologiques"
+  },
+  "tag_historic_ruins": {
+    "message": "ruines"
+  },
+  "tag_historic_castle": {
+    "message": "châteaux"
+  },
+  "tag_tourism_viewpoint": {
+    "message": "points de vue"
+  },
+  "tag_tourism_information": {
+    "message": "points d’information touristique"
+  },
+  "tag_tourism_camp_site": {
+    "message": "campings"
+  },
+  "tag_tourism_hotel": {
+    "message": "hôtels"
+  },
+  "tag_man_made_tower": {
+    "message": "tours"
+  },
+  "tag_man_made_bridge": {
+    "message": "ponts"
+  },
+  "tag_landuse_forest": {
+    "message": "forêts"
+  },
+  "tag_landuse_farmland": {
+    "message": "terres agricoles"
+  },
+  "tag_landuse_meadow": {
+    "message": "prairies cultivées"
+  },
+  "tag_amenity_parking": {
+    "message": "parkings"
+  },
+  "tag_amenity_school": {
+    "message": "écoles"
+  },
+  "tag_amenity_restaurant": {
+    "message": "restaurants"
+  },
+  "tag_amenity_drinking_water": {
+    "message": "points d’eau potable"
+  },
+  "tag_highway_footway": {
+    "message": "chemins piétons"
+  },
+  "tag_highway_path": {
+    "message": "sentiers"
+  },
+  "tag_highway_cycleway": {
+    "message": "pistes cyclables"
+  },
+  "tag_highway_track": {
+    "message": "chemins agricoles et forestiers"
+  },
+  "tag_waterway_stream": {
+    "message": "ruisseaux"
+  },
+  "tag_waterway_river": {
+    "message": "rivières"
+  },
+  "tag_railway_rail": {
+    "message": "voies ferrées"
+  },
+  "tag_railway_station": {
+    "message": "gares"
+  },
+  "tag_route_hiking": {
+    "message": "itinéraires de randonnée"
+  },
+  "tag_route_bicycle": {
+    "message": "itinéraires cyclables"
+  },
+  "tag_place_village": {
+    "message": "villages"
+  },
+  "tag_place_locality": {
+    "message": "lieux-dits"
+  },
+  "overtureHeading": {
+    "message": "Bâtiments Overture"
+  },
+  "loadArea": {
+    "message": "Charger la zone"
+  },
+  "loadAreaTitle": {
+    "message": "Charger une seule fois les bâtiments de la zone visible"
+  },
+  "loading": {
+    "message": "Chargement…"
+  },
+  "loadingArea": {
+    "message": "Chargement de la zone…"
+  },
+  "addBuilding": {
+    "message": "Ajouter (A)"
+  },
+  "addBuildingTitle": {
+    "message": "Créer le bâtiment sélectionné dans iD"
+  },
+  "removeOverlay": {
+    "message": "Effacer la couche"
+  },
+  "dataLicenses": {
+    "message": "Licences des données"
+  },
+  "releaseMissing": {
+    "message": "Aucune version Overture trouvée dans le catalogue"
+  },
+  "zoomToShow": {
+    "message": "Zone chargée · zoomez au niveau $1 pour afficher les bâtiments"
+  },
+  "buildingSelected": {
+    "message": "Bâtiment sélectionné : appuyez sur A ou cliquez sur Ajouter"
+  },
+  "buildingsVisible": {
+    "message": "Zone chargée · $1 bâtiments visibles · cliquez pour sélectionner"
+  },
+  "zoomToLoad": {
+    "message": "Overture : zoomez au niveau $1 pour charger la zone"
+  },
+  "zoomInToLoad": {
+    "message": "Zoomez pour charger la zone"
+  },
+  "noCandidates": {
+    "message": "Zone chargée · aucun bâtiment proposé"
+  },
+  "complexGeometry": {
+    "message": "Géométrie complexe : dessinez-la manuellement dans iD"
+  },
+  "bridgeUnavailable": {
+    "message": "Connexion à iD indisponible : rechargez la page"
+  },
+  "invalidGeometry": {
+    "message": "Géométrie invalide ou trop complexe"
+  },
+  "ringNotClosed": {
+    "message": "Le contour n’est pas fermé"
+  },
+  "closeTutorial": {
+    "message": "Fermez d’abord le tutoriel iD"
+  },
+  "existingBuilding": {
+    "message": "Un bâtiment OSM existe déjà ou se superpose ici : vérifiez la carte"
+  },
+  "unknownSource": {
+    "message": "Source du bâtiment non reconnue"
+  },
+  "buildingCreated": {
+    "message": "Bâtiment créé dans iD. Vérifiez la géométrie et les tags avant d’enregistrer."
+  },
+  "buildingFailed": {
+    "message": "Impossible d’ajouter le bâtiment"
+  },
+  "addBuildingAnnotation": {
+    "message": "Ajouter un bâtiment depuis Overture"
+  },
+  "tag_amenity_place_of_worship": {
+    "message": "lieux de culte"
+  },
+  "tag_historic_monument": {
+    "message": "monuments"
+  },
+  "tag_tourism_attraction": {
+    "message": "attractions"
+  },
+  "tag_type": {
+    "message": "relations"
+  },
+  "popupSubtitle": {
+    "message": "Fonds personnalisés, assistant bâtiments et suggestions de commentaires de groupes de modifications"
+  },
+  "overtureMoveHelp": {
+    "message": "Faites glisser pour déplacer. Double-clic ou touche Début pour réinitialiser ; les flèches déplacent le panneau."
+  }
+}

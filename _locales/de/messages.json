@@ -1,0 +1,380 @@
+{
+  "appName": {
+    "message": "cOSMetics for iD"
+  },
+  "appDescription": {
+    "message": "Eigene Hintergrundebenen, Vorschläge für Änderungssatzkommentare und Overture-Gebäudeumrisse für iD."
+  },
+  "popupTitle": {
+    "message": "cOSMetics for iD 1.82"
+  },
+  "overtureEnable": {
+    "message": "Overture-Gebäudesteuerung in iD anzeigen"
+  },
+  "overtureEnableHelp": {
+    "message": "Aktivieren, um Gebäude zu prüfen und hinzuzufügen. Diese Auswahl wird automatisch gespeichert."
+  },
+  "overtureDescription": {
+    "message": "<strong>Overture-Gebäude</strong><br>Mit dieser Funktion kannst du die Gebäudeebene von Overture laden.<br>Nach dem Aktivieren bei Zoomstufe 18 oder höher auf <strong>Gebiet laden</strong> klicken, um die Gebäude im sichtbaren Gebiet zu laden. Einen Umriss auswählen und <strong>A</strong> drücken oder auf <strong>Hinzufügen (A)</strong> klicken.<br><strong>Jedes Gebäude vor dem Speichern prüfen:</strong> generierte Umrisse können ungenau sein. Mit Luftbildern und OSM-Daten vergleichen und bei Bedarf Form und Position korrigieren. Wenn du die Karte verschiebst, erneut auf die Schaltfläche klicken, um das sichtbare Gebiet zu laden."
+  },
+  "backgroundDescription": {
+    "message": "<strong>Eigene Hintergrundebenen</strong><br>Mit dieser Funktion kannst du zusätzliche eigene Hintergründe über den von iD vorgesehenen hinaus speichern.<br>Hier Hintergründe mit Namen und URL-Vorlage hinzufügen. In iD <strong>Hintergrundeinstellungen</strong> (Ebenensymbol) öffnen, dann <strong>Eigenen Hintergrund bearbeiten</strong> (drei Punkte). Im Panel eine gespeicherte Ebene auswählen, um sie auf der Karte anzuzeigen.<br><strong>Achtung:</strong> Stelle sicher, dass die verwendeten Hintergründe für die Kartierung in OpenStreetMap zugelassen sind!"
+  },
+  "commentDescription": {
+    "message": "<strong>Vorschläge für Änderungssatzkommentare</strong><br>Diese Funktion schlägt einen Kommentar zu deinen Änderungssätzen vor, wenn du nicht weißt, was du schreiben sollst. Sie analysiert deine Änderungen und schlägt eine Beschreibung der wichtigsten vor.<br>Beim Speichern in iD auf <strong>Vorschlagen</strong> klicken, um einen Kommentar anhand der Änderungen und des aktuellen Gebiets zu erstellen. Vor dem Hochladen prüfen und korrigieren oder ersetzen, wenn er nicht passend ist.<br><br>Bei Vorschlägen oder Rückmeldungen <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">kontaktiere mich auf OpenStreetMap</a>."
+  },
+  "commentsInEnglish": {
+    "message": "Kommentare auf Englisch"
+  },
+  "commentsInEnglishHelp": {
+    "message": "Kommentarvorschläge immer auf Englisch verfassen, unabhängig von der Browsersprache."
+  },
+  "licensePrefix": {
+    "message": "Lizenz:"
+  },
+  "addLayer": {
+    "message": "Neue Ebene hinzufügen"
+  },
+  "buttonText": {
+    "message": "Schaltflächentext:"
+  },
+  "layerNameExample": {
+    "message": "z. B. OSM Standard"
+  },
+  "urlTemplate": {
+    "message": "URL-Vorlage:"
+  },
+  "urlExample": {
+    "message": "z. B. https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+  },
+  "removeLayer": {
+    "message": "Entfernen"
+  },
+  "saveSettings": {
+    "message": "Einstellungen speichern"
+  },
+  "settingsSaved": {
+    "message": "Einstellungen gespeichert!"
+  },
+  "configureLayers": {
+    "message": "Zuerst eigene Hintergrundebenen im Erweiterungs-Popup einrichten."
+  },
+  "chooseBackground": {
+    "message": "Eigene Hintergrundebene auswählen"
+  },
+  "close": {
+    "message": "Schließen"
+  },
+  "suggest": {
+    "message": "Vorschlagen"
+  },
+  "analyzing": {
+    "message": "Wird analysiert…"
+  },
+  "noChanges": {
+    "message": "Keine Änderungen in der OSMChange-Datei gefunden. Prüfe, ob du in dieser Sitzung Änderungen vorgenommen hast."
+  },
+  "commentFieldMissing": {
+    "message": "Kommentarfeld nicht gefunden."
+  },
+  "commentError": {
+    "message": "Kommentar konnte nicht erstellt werden. Bitte erneut versuchen."
+  },
+  "unknownArea": {
+    "message": "unbekanntes Gebiet"
+  },
+  "createdPrefix": {
+    "message": "Erstellt"
+  },
+  "createdPrefixFeminine": {
+    "message": "Erstellt"
+  },
+  "modifiedPrefix": {
+    "message": "Geändert"
+  },
+  "modifiedPrefixFeminine": {
+    "message": "Geändert"
+  },
+  "otherImprovements": {
+    "message": "weitere Verbesserungen"
+  },
+  "commentArea": {
+    "message": "im Gebiet von $1"
+  },
+  "tag_highway": {
+    "message": "Straßen und Wege"
+  },
+  "tag_building": {
+    "message": "Gebäude"
+  },
+  "tag_landuse": {
+    "message": "Landnutzungen"
+  },
+  "tag_natural": {
+    "message": "Naturobjekte"
+  },
+  "tag_leisure": {
+    "message": "Freizeitobjekte"
+  },
+  "tag_waterway": {
+    "message": "Wasserläufe"
+  },
+  "tag_amenity": {
+    "message": "Einrichtungen"
+  },
+  "tag_historic": {
+    "message": "historische Objekte"
+  },
+  "tag_shop": {
+    "message": "Geschäfte"
+  },
+  "tag_office": {
+    "message": "Büros"
+  },
+  "tag_tourism": {
+    "message": "Tourismusobjekte"
+  },
+  "tag_man_made": {
+    "message": "Infrastruktur"
+  },
+  "tag_barrier": {
+    "message": "Barrieren"
+  },
+  "tag_railway": {
+    "message": "Eisenbahnen"
+  },
+  "tag_route": {
+    "message": "Routen"
+  },
+  "tag_place": {
+    "message": "Orte"
+  },
+  "tag_public_transport": {
+    "message": "Haltestellen des öffentlichen Verkehrs"
+  },
+  "tag_power": {
+    "message": "Strominfrastruktur"
+  },
+  "tag_geometry": {
+    "message": "Geometrien"
+  },
+  "tag_natural_tree": {
+    "message": "Bäume"
+  },
+  "tag_natural_wood": {
+    "message": "Wälder"
+  },
+  "tag_natural_water": {
+    "message": "Wasserflächen"
+  },
+  "tag_natural_scrub": {
+    "message": "Gebüsche"
+  },
+  "tag_natural_grassland": {
+    "message": "Grasflächen"
+  },
+  "tag_natural_wetland": {
+    "message": "Feuchtgebiete"
+  },
+  "tag_natural_peak": {
+    "message": "Gipfel"
+  },
+  "tag_natural_cliff": {
+    "message": "Felswände"
+  },
+  "tag_leisure_park": {
+    "message": "Parks"
+  },
+  "tag_leisure_playground": {
+    "message": "Spielplätze"
+  },
+  "tag_leisure_pitch": {
+    "message": "Sportplätze"
+  },
+  "tag_leisure_garden": {
+    "message": "Gärten"
+  },
+  "tag_historic_memorial": {
+    "message": "Gedenkstätten"
+  },
+  "tag_historic_archaeological_site": {
+    "message": "archäologische Stätten"
+  },
+  "tag_historic_ruins": {
+    "message": "Ruinen"
+  },
+  "tag_historic_castle": {
+    "message": "Burgen und Schlösser"
+  },
+  "tag_tourism_viewpoint": {
+    "message": "Aussichtspunkte"
+  },
+  "tag_tourism_information": {
+    "message": "Touristeninformationen"
+  },
+  "tag_tourism_camp_site": {
+    "message": "Campingplätze"
+  },
+  "tag_tourism_hotel": {
+    "message": "Hotels"
+  },
+  "tag_man_made_tower": {
+    "message": "Türme"
+  },
+  "tag_man_made_bridge": {
+    "message": "Brücken"
+  },
+  "tag_landuse_forest": {
+    "message": "Forstflächen"
+  },
+  "tag_landuse_farmland": {
+    "message": "Ackerflächen"
+  },
+  "tag_landuse_meadow": {
+    "message": "Wiesen"
+  },
+  "tag_amenity_parking": {
+    "message": "Parkplätze"
+  },
+  "tag_amenity_school": {
+    "message": "Schulen"
+  },
+  "tag_amenity_restaurant": {
+    "message": "Restaurants"
+  },
+  "tag_amenity_drinking_water": {
+    "message": "Trinkwasserstellen"
+  },
+  "tag_highway_footway": {
+    "message": "Fußwege"
+  },
+  "tag_highway_path": {
+    "message": "Pfade"
+  },
+  "tag_highway_cycleway": {
+    "message": "Radwege"
+  },
+  "tag_highway_track": {
+    "message": "Wirtschaftswege"
+  },
+  "tag_waterway_stream": {
+    "message": "Bäche"
+  },
+  "tag_waterway_river": {
+    "message": "Flüsse"
+  },
+  "tag_railway_rail": {
+    "message": "Gleise"
+  },
+  "tag_railway_station": {
+    "message": "Bahnhöfe"
+  },
+  "tag_route_hiking": {
+    "message": "Wanderrouten"
+  },
+  "tag_route_bicycle": {
+    "message": "Radrouten"
+  },
+  "tag_place_village": {
+    "message": "Dörfer"
+  },
+  "tag_place_locality": {
+    "message": "Örtlichkeiten"
+  },
+  "overtureHeading": {
+    "message": "Overture-Gebäude"
+  },
+  "loadArea": {
+    "message": "Gebiet laden"
+  },
+  "loadAreaTitle": {
+    "message": "Gebäude für das sichtbare Gebiet einmalig laden"
+  },
+  "loading": {
+    "message": "Wird geladen…"
+  },
+  "loadingArea": {
+    "message": "Gebiet wird geladen…"
+  },
+  "addBuilding": {
+    "message": "Hinzufügen (A)"
+  },
+  "addBuildingTitle": {
+    "message": "Ausgewähltes Gebäude in iD erstellen"
+  },
+  "removeOverlay": {
+    "message": "Ebene entfernen"
+  },
+  "dataLicenses": {
+    "message": "Datenlizenzen"
+  },
+  "releaseMissing": {
+    "message": "Keine Overture-Version im Katalog gefunden"
+  },
+  "zoomToShow": {
+    "message": "Gebiet geladen · auf Zoomstufe $1 zoomen, um Gebäude anzuzeigen"
+  },
+  "buildingSelected": {
+    "message": "Gebäude ausgewählt: A drücken oder auf Hinzufügen klicken"
+  },
+  "buildingsVisible": {
+    "message": "Gebiet geladen · $1 Gebäude sichtbar · zum Auswählen anklicken"
+  },
+  "zoomToLoad": {
+    "message": "Overture: auf Zoomstufe $1 zoomen, um das Gebiet zu laden"
+  },
+  "zoomInToLoad": {
+    "message": "Hineinzoomen, um das Gebiet zu laden"
+  },
+  "noCandidates": {
+    "message": "Gebiet geladen · keine Gebäudevorschläge"
+  },
+  "complexGeometry": {
+    "message": "Komplexe Geometrie: manuell in iD zeichnen"
+  },
+  "bridgeUnavailable": {
+    "message": "Verbindung zu iD nicht verfügbar: Seite neu laden"
+  },
+  "invalidGeometry": {
+    "message": "Ungültige oder zu komplexe Geometrie"
+  },
+  "ringNotClosed": {
+    "message": "Der Umriss ist nicht geschlossen"
+  },
+  "closeTutorial": {
+    "message": "Zuerst das iD-Tutorial schließen"
+  },
+  "existingBuilding": {
+    "message": "Hier existiert bereits ein OSM-Gebäude oder eine Überschneidung: Karte prüfen"
+  },
+  "unknownSource": {
+    "message": "Gebäudequelle nicht erkannt"
+  },
+  "buildingCreated": {
+    "message": "Gebäude in iD erstellt. Geometrie und Tags vor dem Speichern prüfen."
+  },
+  "buildingFailed": {
+    "message": "Gebäude konnte nicht hinzugefügt werden"
+  },
+  "addBuildingAnnotation": {
+    "message": "Gebäude aus Overture hinzufügen"
+  },
+  "tag_amenity_place_of_worship": {
+    "message": "Gotteshäuser"
+  },
+  "tag_historic_monument": {
+    "message": "Denkmäler"
+  },
+  "tag_tourism_attraction": {
+    "message": "Sehenswürdigkeiten"
+  },
+  "tag_type": {
+    "message": "Relationen"
+  },
+  "popupSubtitle": {
+    "message": "Eigene Hintergrundebenen, Gebäudeassistent und Vorschläge für Änderungssatzkommentare"
+  },
+  "overtureMoveHelp": {
+    "message": "Zum Verschieben ziehen. Doppelklick oder Home setzt die Position zurück; Pfeiltasten verschieben das Panel."
+  }
+}

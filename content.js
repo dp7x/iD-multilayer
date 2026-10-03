@@ -1,6 +1,7 @@
 // content.js
 
 (() => { 
+    const t = (key, substitutions) => chrome.i18n.getMessage(key, substitutions) || key;
 
     let buttonUrls = [];
     let panelInstance = null; 
@@ -28,7 +29,9 @@
             }));
             console.log('Custom layer settings loaded from storage:', buttonUrls);
         } else {
-            console.warn('No custom layer settings found in storage. Please configure them in the extension popup.');
+            // No custom backgrounds have been saved yet. The Overture overlay
+            // works independently, so this is a normal state on a fresh install.
+            buttonUrls = [];
         }
     }
 
@@ -53,7 +56,7 @@
         }
 
         if (buttonUrls.length === 0) {
-            alert("Please configure your custom background layers in the extension's popup options.");
+            alert(t('configureLayers'));
             return;
         }
 
@@ -80,7 +83,7 @@
         `;
 
         const title = document.createElement('h4');
-        title.textContent = 'Choose a custom background layer';
+        title.textContent = t('chooseBackground');
         title.style.cssText = `
             text-align: center;
             font-size: 14px;
@@ -92,6 +95,7 @@
 
         const closeButton = document.createElement('button');
         closeButton.textContent = 'X';
+        closeButton.title = t('close');
         closeButton.style.cssText = `
             position: absolute;
             top: 5px;
@@ -265,22 +269,211 @@
 	// ==============================================
 	// NEW FEATURE: Changeset comment suggester
     // ==============================================
+
+    let englishMessagesPromise;
+
+    async function commentMessages(english) {
+        if (!english) return null;
+        englishMessagesPromise ||= fetch(chrome.runtime.getURL('_locales/en/messages.json'))
+            .then(response => {
+                if (!response.ok) throw new Error('English comment translations unavailable');
+                return response.json();
+            });
+        return englishMessagesPromise;
+    }
+
+    function commentText(key, messages, substitution) {
+        const message = messages ? messages[key]?.message : chrome.i18n.getMessage(key, substitution);
+        return message ? (messages ? message.replaceAll('$1', substitution || '') : message) : key;
+    }
     
-    // Pluralize names (simple, works for English)
-    function pluralize(type) {
-        const irregulars = {
-            'highway': 'highways',
-            'building': 'buildings',
-            'landuse': 'landuses',
-            'natural': 'naturals',
-            'leisure': 'leisures',
-            'waterway': 'waterways',
-            'amenity': 'amenities',
-            'historic': 'historics',
-            'shop': 'shops',
-            'office': 'offices'
-        };
-        return irregulars[type] || type + 's';
+    // Use a precise label for known key=value pairs, otherwise the key's label.
+    function typeLabel(type, messages) {
+        const translated = commentText(`tag_${type.replace('=', '_')}`, messages);
+        if (translated.startsWith('tag_')) return type.replace(/_/g, ' ');
+        if (translated) return translated;
+        return type.replace(/_/g, ' ');
+    }
+
+    // Changeset comment matrix: only these keys classify a known object.
+    // Listed values get a specific label; all other values use the master key.
+    // Edit this matrix together with tag_<key>_<value> in each locale.
+    const MASTER_TAG_RULES = {
+        "landuse": {
+            "values": [
+                "forest",
+                "farmland",
+                "meadow"
+            ]
+        },
+        "natural": {
+            "values": [
+                "tree",
+                "wood",
+                "water",
+                "scrub",
+                "grassland",
+                "wetland",
+                "peak",
+                "cliff"
+            ]
+        },
+        "building": {
+            "values": []
+        },
+        "highway": {
+            "values": [
+                "footway",
+                "path",
+                "cycleway",
+                "track"
+            ],
+            "modified": "key"
+        },
+        "waterway": {
+            "values": [
+                "river",
+                "stream"
+            ]
+        },
+        "leisure": {
+            "values": [
+                "park",
+                "playground",
+                "pitch",
+                "garden"
+            ]
+        },
+        "amenity": {
+            "values": [
+                "parking",
+                "school",
+                "restaurant",
+                "drinking_water",
+                "place_of_worship"
+            ]
+        },
+        "historic": {
+            "values": [
+                "memorial",
+                "archaeological_site",
+                "ruins",
+                "castle",
+                "monument"
+            ]
+        },
+        "shop": {
+            "values": []
+        },
+        "office": {
+            "values": []
+        },
+        "tourism": {
+            "values": [
+                "viewpoint",
+                "information",
+                "camp_site",
+                "hotel",
+                "attraction"
+            ]
+        },
+        "man_made": {
+            "values": [
+                "tower",
+                "bridge"
+            ]
+        },
+        "barrier": {
+            "values": []
+        },
+        "railway": {
+            "values": [
+                "rail",
+                "station"
+            ]
+        },
+        "route": {
+            "values": [
+                "hiking",
+                "bicycle"
+            ]
+        },
+        "place": {
+            "values": [
+                "village",
+                "locality"
+            ]
+        },
+        "public_transport": {
+            "values": []
+        },
+        "power": {
+            "values": []
+        },
+        "type": {
+            "values": []
+        }
+    };
+    const PRIMARY_TAGS = new Set(Object.keys(MASTER_TAG_RULES));
+
+    function recognizedType(key, value, action) {
+        const rule = MASTER_TAG_RULES[key];
+        if (rule?.modified === 'key' && action === 'modify') return key;
+        return rule?.values.includes(value) ? `${key}=${value}` : key;
+    }
+
+    // Used only to screen a single unknown candidate when no known master tag exists.
+    const SECONDARY_TAGS = new Set([
+        'type', 'name', 'alt_name', 'official_name', 'short_name', 'loc_name',
+        'source', 'note', 'fixme', 'description', 'website', 'url', 'phone', 'email',
+        'wikidata', 'wikipedia', 'ref', 'operator', 'brand', 'opening_hours',
+        'start_date', 'check_date', 'created_by', 'attribution', 'import',
+        'height', 'ele', 'layer', 'level', 'surface', 'smoothness', 'width',
+        'lanes', 'maxspeed', 'oneway', 'access', 'foot', 'bicycle',
+        'motor_vehicle', 'lit', 'fee', 'service', 'tracktype',
+        'leaf_type', 'leaf_cycle', 'species', 'genus', 'taxon',
+        'denotation', 'circumference'
+    ]);
+    const SECONDARY_PREFIXES = [
+        'name:', 'addr:', 'contact:', 'source:', 'ref:', 'payment:',
+        'roof:', 'building:', 'note:', 'fixme:', 'description:',
+        'operator:', 'brand:', 'survey:'
+    ];
+
+    function describesObject(key, value) {
+        return typeof key === 'string' && key.length > 0 &&
+            (PRIMARY_TAGS.has(key) || !SECONDARY_TAGS.has(key)) &&
+            !SECONDARY_PREFIXES.some(prefix => key.startsWith(prefix)) &&
+            !(key === 'building' && value === 'no');
+    }
+
+    function typeTags(tags) {
+        const candidates = tags.filter(([key, value]) => describesObject(key, value));
+        let primary = candidates.filter(([key]) => PRIMARY_TAGS.has(key));
+        // A relation's type is a fallback when no descriptive master is present.
+        if (primary.some(([key]) => key !== 'type')) primary = primary.filter(([key]) => key !== 'type');
+        if (primary.length) return primary;
+        // A future master key (e.g. AI=chatgpt) can be shown by its key if
+        // unambiguous. Multiple unknown keys cannot safely be classified.
+        return candidates.length === 1 ? candidates : [];
+    }
+
+    function parentWaysForModifiedNodes(ids) {
+        let parents = [];
+        const receive = event => { parents = event.detail?.parents || []; };
+        document.addEventListener('cosmetics:modified-node-parents-result', receive, { once: true });
+        document.dispatchEvent(new CustomEvent('cosmetics:modified-node-parents', { detail: { ids } }));
+        document.removeEventListener('cosmetics:modified-node-parents-result', receive);
+        return parents;
+    }
+
+    function loadedGeometryPoints(ids) {
+        let points = {};
+        const receive = event => { points = event.detail?.points || {}; };
+        document.addEventListener('cosmetics:geometry-points-result', receive, { once: true });
+        document.dispatchEvent(new CustomEvent('cosmetics:geometry-points', { detail: { ids } }));
+        document.removeEventListener('cosmetics:geometry-points-result', receive);
+        return points;
     }
 
 	// Download and parse OSMChange file to extract object types
@@ -306,39 +499,70 @@
 			const parser = new DOMParser();
 			const xmlDoc = parser.parseFromString(osmChangeText, 'text/xml');
 			
-			const created = {};
-			const modified = {};
+			const created = Object.create(null);
+			const modified = Object.create(null);
+            const createdPoints = Object.create(null);
+            const modifiedPoints = Object.create(null);
+			const changedUntaggedNodeIds = [];
+			const modifiedWayIds = new Set();
 			
-			// Master tags that define the object type
-			const MASTER_TAGS = [
-				'landuse', 'natural', 'building', 'highway', 
-				'waterway', 'leisure', 'amenity', 'historic', 
-				'shop', 'office', 'tourism', 'man_made', 'barrier'
-			];
-			
+			function recordTag(key, value, action, pointCount = 1) {
+				if (!describesObject(key, value)) return;
+				const type = recognizedType(key, value, action);
+				const counts = action === 'create' ? created : modified;
+				counts[type] = (counts[type] || 0) + 1;
+                const points = action === 'create' ? createdPoints : modifiedPoints;
+                points[type] = (points[type] || 0) + pointCount;
+			}
+
+            // Count unique geometry nodes; closed ways count the closing node once.
+            const entities = new Map();
+            const prefix = { node: 'n', way: 'w', relation: 'r' };
+            for (const kind of Object.keys(prefix)) {
+                for (const entity of xmlDoc.getElementsByTagName(kind)) {
+                    entities.set(prefix[kind] + entity.getAttribute('id'), entity);
+                }
+            }
+            const relations = [...entities.keys()].filter(id => id.startsWith('r'));
+            const loadedPoints = relations.length ? loadedGeometryPoints(relations) : {};
+            function localNodeIds(entity, visited = new Set(), nodes = new Set()) {
+                const id = prefix[entity.tagName] + entity.getAttribute('id');
+                if (visited.has(id)) return nodes;
+                visited.add(id);
+                if (entity.tagName === 'node') nodes.add(entity.getAttribute('id'));
+                if (entity.tagName === 'way') {
+                    for (const nd of entity.getElementsByTagName('nd')) nodes.add(nd.getAttribute('ref'));
+                }
+                if (entity.tagName === 'relation') {
+                    for (const member of entity.getElementsByTagName('member')) {
+                        const kind = member.getAttribute('type');
+                        const ref = member.getAttribute('ref');
+                        if (kind === 'node') nodes.add(ref);
+                        const child = entities.get(prefix[kind] + ref);
+                        if (child) localNodeIds(child, visited, nodes);
+                    }
+                }
+                return nodes;
+            }
+            function geometryPoints(entity) {
+                const id = prefix[entity.tagName] + entity.getAttribute('id');
+                return Math.max(1, localNodeIds(entity).size, Number(loadedPoints[id]) || 0);
+            }
+
 			// Helper function to process tags from an element
 			function processTags(element, action) {
-				const tags = element.getElementsByTagName('tag');
-				for (const tag of tags) {
-					const key = tag.getAttribute('k');
-					if (!MASTER_TAGS.includes(key)) continue;
-					
-					if (action === 'create') {
-						created[key] = (created[key] || 0) + 1;
-					} else if (action === 'modify') {
-						modified[key] = (modified[key] || 0) + 1;
-					}
+				const tags = [...element.getElementsByTagName('tag')]
+					.map(tag => [tag.getAttribute('k'), tag.getAttribute('v')]);
+				for (const [key, value] of typeTags(tags)) {
+					recordTag(key, value, action, geometryPoints(element));
 				}
 			}
 			
-			// Helper to check if a node has any master tags
-			function hasMasterTags(node) {
-				const tags = node.getElementsByTagName('tag');
-				for (const tag of tags) {
-					const key = tag.getAttribute('k');
-					if (MASTER_TAGS.includes(key)) return true;
-				}
-				return false;
+			// An independent node can also carry a future, not yet translated key.
+			function hasClassifyingTags(node) {
+				const tags = [...node.getElementsByTagName('tag')]
+					.map(tag => [tag.getAttribute('k'), tag.getAttribute('v')]);
+				return typeTags(tags).length > 0;
 			}
 			
 			// Analyze <create> and <modify> sections
@@ -349,6 +573,7 @@
 					// Process ways
 					const ways = element.getElementsByTagName('way');
 					for (const way of ways) {
+						if (action === 'modify') modifiedWayIds.add(`w${way.getAttribute('id')}`);
 						processTags(way, action);
 					}
 					
@@ -361,26 +586,43 @@
 					// Process INDEPENDENT nodes only (nodes with their own tags)
 					const nodes = element.getElementsByTagName('node');
 					for (const node of nodes) {
-						// Only count nodes that have master tags themselves
+						// Only count nodes with descriptive tags themselves
 						// (skip nodes that are just geometry for ways/relations)
-						if (hasMasterTags(node)) {
+						if (hasClassifyingTags(node)) {
 							processTags(node, action);
+						} else if (action === 'modify' && node.getElementsByTagName('tag').length === 0) {
+							changedUntaggedNodeIds.push(node.getAttribute('id'));
 						}
 					}
 				}
 			});
+
+			// A moved node may belong to a way absent from OSMChange's modify block.
+			// Classify loaded parent ways once each, then fall back to geometry.
+			if (changedUntaggedNodeIds.length) {
+				for (const parent of parentWaysForModifiedNodes(changedUntaggedNodeIds)) {
+					if (modifiedWayIds.has(parent.id)) continue;
+					for (const [key, value] of typeTags(Object.entries(parent.tags || {}))) {
+						recordTag(key, value, 'modify', Math.max(1, Number(parent.pointCount) || 0));
+					}
+				}
+				if (Object.keys(modified).length === 0) {
+                    modified.geometry = 1;
+                    modifiedPoints.geometry = new Set(changedUntaggedNodeIds).size;
+                }
+			}
 			
 			const totalTypes = Object.keys(created).length + Object.keys(modified).length;
 			
 			if (totalTypes === 0) {
-				console.log("cOSMetics for iD: No master tags found in OSMChange");
+				console.log("cOSMetics for iD: No descriptive tags found in OSMChange");
 				return null;
 			}
 			
 			console.log("cOSMetics for iD: Created types:", created);
 			console.log("cOSMetics for iD: Modified types:", modified);
 			
-			return { created, modified };
+			return { created, modified, createdPoints, modifiedPoints };
 			
 		} catch (error) {
 			console.error("cOSMetics for iD: Error in parsing OSMChange:", error);
@@ -474,7 +716,7 @@ async function getCurrentArea() {
         console.error("cOSMetics for iD: Error getting the area:", error);
     }
     
-    return "area unknown";
+    return t('unknownArea');
 }
 
 // Helper function to get area from Nominatim
@@ -500,29 +742,63 @@ async function getAreaFromNominatim(lat, lon) {
     }
 }
     
-    // Generate comment text based on created and modified types
-    function generateComment(typeCount, areaName) {
+    // Generate a sentence in the UI language, or in English when requested.
+    async function generateComment(typeCount, areaName, english = false) {
+        const messages = await commentMessages(english);
         const created = typeCount.created || {};
         const modified = typeCount.modified || {};
         
-        const sortedCreated = Object.entries(created).sort((a, b) => b[1] - a[1]);
-        const sortedModified = Object.entries(modified).sort((a, b) => b[1] - a[1]);
+        const MAX_COMMENT_TYPES = 4;
+        // Frequency first, total unique geometry points second. Stable ties preserve encounter order.
+        const sortTypes = (counts, points) => Object.entries(counts).sort((a, b) =>
+            b[1] - a[1] || (points[b[0]] || 0) - (points[a[0]] || 0));
+        const sortedCreated = sortTypes(created, typeCount.createdPoints || {});
+        const sortedModified = sortTypes(modified, typeCount.modifiedPoints || {});
+        const displayedCreated = sortedCreated.slice(0, MAX_COMMENT_TYPES);
+        const displayedModified = sortedModified.slice(0, MAX_COMMENT_TYPES);
+        const parts = [];
+        const hasOtherImprovements = sortedCreated.length > displayedCreated.length ||
+            sortedModified.length > displayedModified.length;
+
+        const feminineTypes = new Set([
+            'geometry', 'railway', 'place', 'public_transport', 'power',
+            'natural=grassland', 'natural=wetland', 'natural=peak', 'natural=cliff',
+            'leisure=playground', 'historic=ruins', 'landuse=forest',
+            'tourism=attraction', 'type'
+        ]);
+        const language = english ? 'en' : chrome.i18n.getUILanguage().split(/[-_]/)[0].toLowerCase();
+        const italian = language === 'it';
+        const verb = (action, type) => {
+            const feminine = italian && feminineTypes.has(type);
+            const key = `${action}Prefix${feminine ? 'Feminine' : ''}`;
+            const word = commentText(key, messages);
+            return parts.length ? word.toLowerCase() : word;
+        };
         
-        let parts = [];
-        let totalTypes = 0;
-        
+        const phrase = (action, entries, labels) => {
+            const list = labels.join(', ');
+            if (language === 'de') {
+                const word = commentText(`${action}Prefix`, messages).toLowerCase();
+                const text = `${list} ${word}`;
+                return parts.length ? text : text.charAt(0).toUpperCase() + text.slice(1);
+            }
+            let prefix = verb(action, entries[0][0]);
+            if (language === 'fr' && /^[aeiouyàâäéèêëîïôöùûühœæ]/i.test(list)) {
+                return `${prefix.replace(/de$/, 'd’')}${list}`;
+            }
+            return `${prefix} ${list}`;
+        };
+
         // Build "created" part
-        const createdTypes = sortedCreated.slice(0, 3).map(([key]) => pluralize(key));
+        const createdTypes = displayedCreated.map(([key]) => typeLabel(key, messages));
         if (createdTypes.length > 0) {
-            parts.push(`created ${createdTypes.join(', ')}`);
-            totalTypes += sortedCreated.length;
+            parts.push(phrase('created', displayedCreated, createdTypes));
         }
         
         // Build "modified" part
-        const modifiedTypes = sortedModified.slice(0, 3).map(([key]) => pluralize(key));
+        const modifiedTypes = displayedModified.map(([key]) => typeLabel(key, messages));
         if (modifiedTypes.length > 0) {
-            parts.push(`modified ${modifiedTypes.join(', ')}`);
-            totalTypes += sortedModified.length;
+            parts.push(phrase('modified', displayedModified, modifiedTypes));
         }
         
         // If nothing found, return null
@@ -531,12 +807,12 @@ async function getAreaFromNominatim(lat, lon) {
         // Join the parts
         let comment = parts.join(' + ');
         
-        // Add "other improvements" only once at the end if there are more than 3 types total
-        if (totalTypes > 3) {
-            comment += ` + other improvements`;
+        // Mention other improvements only when categories have been omitted.
+        if (hasOtherImprovements) {
+            comment += ` + ${commentText('otherImprovements', messages)}`;
         }
         
-        comment += ` in ${areaName} area`;
+        comment += ` ${commentText('commentArea', messages, areaName)}`;
         return comment;
     }
     
@@ -548,7 +824,7 @@ async function getAreaFromNominatim(lat, lon) {
         const suggestBtn = document.getElementById('id-multilayer-suggest-btn');
         const originalText = suggestBtn ? suggestBtn.textContent : '';
         if (suggestBtn) {
-            suggestBtn.textContent = '⏳ Analyzing...';
+            suggestBtn.textContent = `⏳ ${t('analyzing')}`;
             suggestBtn.disabled = true;
         }
         
@@ -556,12 +832,13 @@ async function getAreaFromNominatim(lat, lon) {
             const typeCount = await analyzeChangesFromOsmChange();
             
             if (!typeCount) {
-                alert("⚠️ No changes detected in OSMChange file.\n\nMake sure you have made changes in this session.");
+                alert(t('noChanges'));
                 return;
             }
             
             const areaName = await getCurrentArea();
-            const suggestion = generateComment(typeCount, areaName);
+            const { commentsInEnglish = false } = await chrome.storage.sync.get('commentsInEnglish');
+            const suggestion = await generateComment(typeCount, areaName, commentsInEnglish);
             
             if (suggestion) {
                 const commentField = document.querySelector('.form-field-comment textarea');
@@ -577,9 +854,12 @@ async function getAreaFromNominatim(lat, lon) {
                     
                     //console.log(`cOSMetics for iD: Comment inserted: "${suggestion}"`);
                 } else {
-                    alert("Comment field not found.");
+                    alert(t('commentFieldMissing'));
                 }
             }
+        } catch (error) {
+            console.error('cOSMetics: comment suggestion failed', error);
+            alert(t('commentError'));
         } finally {
             // Restore button
             if (suggestBtn) {
@@ -609,7 +889,7 @@ async function getAreaFromNominatim(lat, lon) {
                 if (buttonContainer) {
                     const suggestBtn = document.createElement('button');
                     suggestBtn.id = 'id-multilayer-suggest-btn';
-                    suggestBtn.textContent = '💡 Suggest';
+                    suggestBtn.textContent = `💡 ${t('suggest')}`;
                     suggestBtn.className = 'action button';  // Uses ID class for style
                     suggestBtn.style.marginRight = '8px';
                     suggestBtn.style.backgroundColor = '#4CAF50';

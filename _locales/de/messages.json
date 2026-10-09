@@ -6,7 +6,7 @@
     "message": "Eigene Hintergrundebenen, Vorschläge für Änderungssatzkommentare und Overture-Gebäudeumrisse für iD."
   },
   "popupTitle": {
-    "message": "cOSMetics for iD 1.82"
+    "message": "cOSMetics for iD 1.85"
   },
   "overtureEnable": {
     "message": "Overture-Gebäudesteuerung in iD anzeigen"
@@ -15,13 +15,13 @@
     "message": "Aktivieren, um Gebäude zu prüfen und hinzuzufügen. Diese Auswahl wird automatisch gespeichert."
   },
   "overtureDescription": {
-    "message": "<strong>Overture-Gebäude</strong><br>Mit dieser Funktion kannst du die Gebäudeebene von Overture laden.<br>Nach dem Aktivieren bei Zoomstufe 18 oder höher auf <strong>Gebiet laden</strong> klicken, um die Gebäude im sichtbaren Gebiet zu laden. Einen Umriss auswählen und <strong>A</strong> drücken oder auf <strong>Hinzufügen (A)</strong> klicken.<br><strong>Jedes Gebäude vor dem Speichern prüfen:</strong> generierte Umrisse können ungenau sein. Mit Luftbildern und OSM-Daten vergleichen und bei Bedarf Form und Position korrigieren. Wenn du die Karte verschiebst, erneut auf die Schaltfläche klicken, um das sichtbare Gebiet zu laden."
+    "message": "Mit dieser Funktion kannst du die Gebäudeebene von Overture laden.<br>Nach dem Aktivieren bei Zoomstufe 18 oder höher auf <strong>Gebiet laden</strong> klicken, um die Gebäude im sichtbaren Gebiet zu laden. Einen Umriss auswählen und <strong>A</strong> drücken oder auf <strong>Hinzufügen (A)</strong> klicken.<br><strong>Jedes Gebäude vor dem Speichern prüfen:</strong> generierte Umrisse können ungenau sein. Mit Luftbildern und OSM-Daten vergleichen und bei Bedarf Form und Position korrigieren. Wenn du die Karte verschiebst, erneut auf die Schaltfläche klicken, um das sichtbare Gebiet zu laden."
   },
   "backgroundDescription": {
-    "message": "<strong>Eigene Hintergrundebenen</strong><br>Mit dieser Funktion kannst du zusätzliche eigene Hintergründe über den von iD vorgesehenen hinaus speichern.<br>Hier Hintergründe mit Namen und URL-Vorlage hinzufügen. In iD <strong>Hintergrundeinstellungen</strong> (Ebenensymbol) öffnen, dann <strong>Eigenen Hintergrund bearbeiten</strong> (drei Punkte). Im Panel eine gespeicherte Ebene auswählen, um sie auf der Karte anzuzeigen.<br><strong>Achtung:</strong> Stelle sicher, dass die verwendeten Hintergründe für die Kartierung in OpenStreetMap zugelassen sind!"
+    "message": "Mit dieser Funktion kannst du zusätzliche eigene Hintergründe über den von iD vorgesehenen hinaus speichern.<br>Hier Hintergründe mit Namen und URL-Vorlage hinzufügen. In iD <strong>Hintergrundeinstellungen</strong> (Ebenensymbol) öffnen, dann <strong>Eigenen Hintergrund bearbeiten</strong> (drei Punkte). Im Panel eine gespeicherte Ebene auswählen, um sie auf der Karte anzuzeigen.<br><strong>Achtung:</strong> Stelle sicher, dass die verwendeten Hintergründe für die Kartierung in OpenStreetMap zugelassen sind!"
   },
   "commentDescription": {
-    "message": "<strong>Vorschläge für Änderungssatzkommentare</strong><br>Diese Funktion schlägt einen Kommentar zu deinen Änderungssätzen vor, wenn du nicht weißt, was du schreiben sollst. Sie analysiert deine Änderungen und schlägt eine Beschreibung der wichtigsten vor.<br>Beim Speichern in iD auf <strong>Vorschlagen</strong> klicken, um einen Kommentar anhand der Änderungen und des aktuellen Gebiets zu erstellen. Vor dem Hochladen prüfen und korrigieren oder ersetzen, wenn er nicht passend ist.<br><br>Bei Vorschlägen oder Rückmeldungen <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">kontaktiere mich auf OpenStreetMap</a>."
+    "message": "Diese Funktion schlägt einen Kommentar zu deinen Änderungssätzen vor, wenn du nicht weißt, was du schreiben sollst. Sie analysiert deine Änderungen und schlägt eine Beschreibung der wichtigsten vor.<br>Beim Speichern in iD auf <strong>Vorschlagen</strong> klicken, um einen Kommentar anhand der Änderungen und des aktuellen Gebiets zu erstellen. Vor dem Hochladen prüfen und korrigieren oder ersetzen, wenn er nicht passend ist.<br><br>Bei Vorschlägen oder Rückmeldungen <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">kontaktiere mich auf OpenStreetMap</a>."
   },
   "commentsInEnglish": {
     "message": "Kommentare auf Englisch"
@@ -376,5 +376,65 @@
   },
   "overtureMoveHelp": {
     "message": "Zum Verschieben ziehen. Doppelklick oder Home setzt die Position zurück; Pfeiltasten verschieben das Panel."
+  },
+  "hashtagLabel": {
+    "message": "Änderungssatz-Hashtag"
+  },
+  "hashtagClear": {
+    "message": "Löschen"
+  },
+  "hashtagHelp": {
+    "message": "Wird automatisch gespeichert und beim Öffnen des Speicherdialogs in das Hashtag-Feld von iD eingetragen, bis du ihn löschst. Eingabe mit oder ohne #."
+  },
+  "hashtagSaved": {
+    "message": "Hashtag gespeichert."
+  },
+  "hashtagCleared": {
+    "message": "Hashtag gelöscht: Er wird nicht mehr automatisch eingetragen."
+  },
+  "hashtagInvalid": {
+    "message": "Einen einzelnen Hashtag ohne Leerzeichen eingeben (Buchstaben, Zahlen, _ oder -). Der zuvor gespeicherte Wert bleibt unverändert."
+  },
+  "hashtagSaveError": {
+    "message": "Hashtag konnte nicht gespeichert werden. Bitte erneut versuchen."
+  },
+  "sectionOverture": {
+    "message": "Overture-Gebäude"
+  },
+  "sectionLayers": {
+    "message": "Benutzerdefinierte Hintergründe"
+  },
+  "sectionComments": {
+    "message": "Kommentare und Hashtags"
+  },
+  "sectionGrid": {
+    "message": "Kartierungsraster"
+  },
+  "gridHelp": {
+    "message": "Erzeuge ein Raster um die Mitte der aktuellen OpenStreetMap-Ansicht. Öffne den Bearbeitungsmodus in iD und ziehe die heruntergeladene Datei auf die Karte."
+  },
+  "gridCount": {
+    "message": "Zellen pro Seite (1–10)"
+  },
+  "gridMeters": {
+    "message": "Seitenlänge je Zelle in Metern (100–1000)"
+  },
+  "gridDownload": {
+    "message": "GeoJSON-Raster herunterladen"
+  },
+  "gridInvalid": {
+    "message": "Gib 1 bis 10 Zellen pro Seite und 100 bis 1000 Meter ein."
+  },
+  "gridSite": {
+    "message": "Öffne eine Karte auf www.openstreetmap.org."
+  },
+  "gridCoordinates": {
+    "message": "Die Kartenmitte konnte nicht gelesen werden. Verschiebe die Karte und versuche es erneut."
+  },
+  "gridDone": {
+    "message": "Raster heruntergeladen. Ziehe die Datei auf die Karte in iD."
+  },
+  "gridError": {
+    "message": "Das Raster konnte nicht erzeugt werden. Versuche es erneut."
   }
 }

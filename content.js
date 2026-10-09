@@ -295,6 +295,14 @@
         return type.replace(/_/g, ' ');
     }
 
+    function normalizeCommentHashtag(value) {
+        if (typeof value !== 'string') return '';
+        const text = value.trim().replace(/^#+/, '');
+        if (!text) return '';
+        if (!/^[\p{L}\p{M}\p{N}_-]+$/u.test(text) || text.length > 99) return null;
+        return `#${text}`;
+    }
+
     // Changeset comment matrix: only these keys classify a known object.
     // Listed values get a specific label; all other values use the master key.
     // Edit this matrix together with tag_<key>_<value> in each locale.
@@ -869,6 +877,52 @@ async function getAreaFromNominatim(lat, lon) {
         }
     }
     
+    // Apply once per upload panel, so removing a hashtag manually in iD is respected.
+    const hashtagPanels = new WeakSet();
+    const pendingHashtagPanels = new WeakSet();
+    const queuedHashtagPanels = new WeakSet();
+    const panelHashtags = new WeakMap();
+    async function prefillChangesetHashtag(panel, force = false) {
+        if (pendingHashtagPanels.has(panel)) {
+            if (force) queuedHashtagPanels.add(panel);
+            return;
+        }
+        if (!force && hashtagPanels.has(panel)) return;
+        pendingHashtagPanels.add(panel);
+        try {
+            const values = await chrome.storage.local.get(['changesetHashtag', 'appliedChangesetHashtag']);
+            if (!panel.isConnected) return;
+            const hashtag = normalizeCommentHashtag(values.changesetHashtag) || '';
+            const previous = normalizeCommentHashtag(panelHashtags.has(panel) ?
+                panelHashtags.get(panel) : values.appliedChangesetHashtag) || '';
+            if (!hashtag && !previous) { hashtagPanels.add(panel); return; }
+            let ok = false;
+            const receive = event => { ok = event.detail?.ok === true; };
+            document.addEventListener('cosmetics:changeset-hashtag-result', receive, { once: true });
+            document.dispatchEvent(new CustomEvent('cosmetics:changeset-hashtag', { detail: { hashtag, previous } }));
+            document.removeEventListener('cosmetics:changeset-hashtag-result', receive);
+            if (ok) {
+                hashtagPanels.add(panel);
+                panelHashtags.set(panel, hashtag);
+                await chrome.storage.local.set({ appliedChangesetHashtag: hashtag });
+            }
+        } catch (error) {
+            console.warn('cOSMetics: hashtag prefill failed', error);
+        } finally {
+            pendingHashtagPanels.delete(panel);
+            if (queuedHashtagPanels.has(panel)) {
+                queuedHashtagPanels.delete(panel);
+                prefillChangesetHashtag(panel, true);
+            }
+        }
+    }
+
+    chrome.storage.onChanged.addListener((changes, area) => {
+        if (area !== 'local' || !changes.changesetHashtag) return;
+        const panel = document.querySelector('.modal-section.changeset-editor');
+        if (panel) prefillChangesetHashtag(panel, true);
+    });
+
     // Add "Suggest comment" button to the save dialog
     let saveDialogObserver = null;
     
@@ -880,6 +934,7 @@ async function getAreaFromNominatim(lat, lon) {
             // Look for the changeset panel (when the save dialog appears)
             const changesetEditor = document.querySelector('.modal-section.changeset-editor');
             const existingButton = document.getElementById('id-multilayer-suggest-btn');
+            if (changesetEditor) prefillChangesetHashtag(changesetEditor);
             
             // If we find the changeset editor and the button doesn't exist yet
             if (changesetEditor && !existingButton) {

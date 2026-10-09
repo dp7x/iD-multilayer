@@ -117,6 +117,36 @@
         }
         .overture-setting input { accent-color: #4CAF50; }
         .overture-setting p { margin: 7px 0 0 24px; color: #555; line-height: 1.4; }
+        .hashtag-setting label { display:block; }
+        .hashtag-row { display:flex; gap:6px; margin-top:8px; align-items:center; }
+        .hashtag-row input { flex:1; min-width:0; padding:7px; border:1px solid #ccc; border-radius:4px; font:13px sans-serif; }
+        .hashtag-row button { width:auto; margin:0; padding:7px 10px; font-size:12px; background:#6c757d; }
+        .hashtag-row button:disabled { opacity:.5; cursor:default; }
+        .hashtag-setting p { margin-left:0; }
+        #hashtagFeedback { font-size:12px; margin-top:6px; }
+
+        * { box-sizing: border-box; }
+        html { overflow: hidden; }
+        body { width: 370px; max-height: 580px; margin: 0; padding: 0; display: flex; flex-direction: column; font-size: 13px; }
+        .logo-container { margin: 12px 0 0; flex-shrink: 0; }
+        .logo-container img { max-width: 72px; }
+        h3 { margin: 8px 15px 6px; flex-shrink: 0; }
+        .popup-subtitle { margin: 0 15px 12px; flex-shrink: 0; }
+        #popupContent { overflow-y: auto; min-height: 0; padding: 0 15px 12px; scrollbar-gutter: stable; }
+        .feature-section { border: 1px solid #ccc; border-radius: 6px; margin-bottom: 10px; background: white; }
+        summary { cursor: pointer; padding: 13px 12px; font-weight: bold; font-size: 14px; line-height: 1.4; }
+        summary:focus-visible { outline: 2px solid #007bff; outline-offset: -2px; }
+        details[open] summary { border-bottom: 1px solid #ddd; }
+        .section-content { padding: 12px; }
+        .description { text-align: left; margin: 0 0 14px; line-height: 1.55; }
+        .overture-setting { margin-bottom: 12px; }
+        .input-group input[type="text"], .input-group input[type="number"] { width: 100%; font-size: 13px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .input-group input[type="number"] { margin-bottom: 12px; }
+        .credits { margin-top: 16px; line-height: 1.5; }
+        .save-footer { flex-shrink: 0; padding: 12px 15px; background: #f5f5f5; border-top: 1px solid #ccc; }
+        .save-footer button { margin: 0; }
+        .feedback:empty { display: none; }
+        #gridFeedback { margin: 12px 0 0; }
     </style>
 </head>
 <body>
@@ -124,36 +154,47 @@
         <img src="cOSMetics_logo.png" alt="cOSMetics Logo">
     </div>
 
-    <h3 data-i18n="popupTitle">cOSMetics for iD 1.82</h3>
+    <h3 data-i18n="popupTitle">cOSMetics for iD 1.85</h3>
     <p class="popup-subtitle" data-i18n="popupSubtitle">Custom Layers, Building Assistant &amp; Changeset Comment Suggester</p>
 
-    <div class="overture-setting">
+<main id="popupContent"><details class="feature-section" id="sectionOverture"><summary data-i18n="sectionOverture"></summary><div class="section-content">    <div class="overture-setting">
         <label><input id="overtureEnabled" type="checkbox"> <span data-i18n="overtureEnable">Mostra i controlli Edifici Overture in iD</span></label>
         <p data-i18n="overtureEnableHelp">Attivali solo quando vuoi consultare e aggiungere edifici. La scelta viene salvata automaticamente.</p>
     </div>
 
     <p class="description" data-i18n-html="overtureDescription"></p>
 
-    <p class="description" data-i18n-html="backgroundDescription"></p>
-
-    <form id="settingsForm">
-        </form>
-
-    <button id="saveButton" data-i18n="saveSettings">Save Settings</button>
-	
-    <p class="description" style="margin-top: 15px;" data-i18n-html="commentDescription"></p>
+</div></details>
+<details class="feature-section" id="sectionLayers"><summary data-i18n="sectionLayers"></summary><div class="section-content"><p class="description" data-i18n-html="backgroundDescription"></p>
+<form id="settingsForm"></form></div></details>
+<details class="feature-section" id="sectionComments"><summary data-i18n="sectionComments"></summary><div class="section-content">    <p class="description" style="margin-top: 15px;" data-i18n-html="commentDescription"></p>
 
     <div class="overture-setting">
         <label><input id="commentsInEnglish" type="checkbox"> <span data-i18n="commentsInEnglish">Commenti in lingua inglese</span></label>
         <p data-i18n="commentsInEnglishHelp">Usa sempre l’inglese per i commenti suggeriti, indipendentemente dalla lingua del browser.</p>
     </div>
 
-    <div id="feedback" class="feedback"></div>
+    <div class="overture-setting hashtag-setting">
+        <label for="changesetHashtag" data-i18n="hashtagLabel">Hashtag del changeset</label>
+        <div class="hashtag-row">
+            <input id="changesetHashtag" type="text" maxlength="100" placeholder="#PaesiniNonMappati" autocomplete="off" spellcheck="false" aria-describedby="hashtagHelp hashtagFeedback">
+            <button id="clearHashtag" type="button" data-i18n="hashtagClear">Azzera</button>
+        </div>
+        <p id="hashtagHelp" data-i18n="hashtagHelp">Salvato automaticamente e inserito nel campo hashtag di iD quando apri il salvataggio, finché non lo azzeri. Puoi scriverlo con o senza #.</p>
+        <div id="hashtagFeedback" role="status" aria-live="polite"></div>
+    </div>
 
+</div></details>
+<details class="feature-section" id="sectionGrid"><summary data-i18n="sectionGrid"></summary><div class="section-content"><p class="description" data-i18n="gridHelp"></p>
+<div class="input-group"><label for="gridSize" data-i18n="gridCount"></label><input id="gridSize" type="number" min="1" max="10" step="1" value="5">
+<label for="squareSize" data-i18n="gridMeters"></label><input id="squareSize" type="number" min="100" max="1000" step="any" value="100"></div>
+<button id="generateGrid" type="button" data-i18n="gridDownload"></button><p id="gridFeedback" class="description" role="status" aria-live="polite"></p></div></details>
     <div class="credits">
         <h6>&copy; 2024 <strong>dp7</strong>@<a href="https://www.openstreetmap.org/user/dp7" target="_blank">OpenStreetMap</a><br><span data-i18n="licensePrefix">Licensed under the</span> <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a></h6>
     </div>
 
+</main><footer class="save-footer"><button id="saveButton" type="button" data-i18n="saveSettings"></button><div id="feedback" class="feedback" role="status" aria-live="polite"></div></footer>
     <script src="popup.js"></script>
+    <script src="popup-tools.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     "message": "Fondos personalizados, sugerencias de comentarios de conjuntos de cambios y contornos de edificios Overture para iD."
   },
   "popupTitle": {
-    "message": "cOSMetics for iD 1.82"
+    "message": "cOSMetics for iD 1.85"
   },
   "overtureEnable": {
     "message": "Mostrar los controles de edificios Overture en iD"
@@ -15,13 +15,13 @@
     "message": "Actívalos para revisar y añadir edificios. Esta opción se guarda automáticamente."
   },
   "overtureDescription": {
-    "message": "<strong>Edificios Overture</strong><br>Esta función permite cargar la capa de edificios de Overture.<br>Una vez activada, con un nivel de zoom de 18 o superior, pulsa <strong>Cargar zona</strong> para cargar los edificios de la zona visible. Selecciona un contorno y pulsa <strong>A</strong> o <strong>Añadir (A)</strong>.<br><strong>Comprueba cada edificio antes de guardar:</strong> los contornos generados pueden ser imprecisos. Compáralos con las imágenes y los datos OSM y corrige su forma y posición cuando sea necesario. Si desplazas el mapa, pulsa de nuevo el botón para cargar la zona visible."
+    "message": "Esta función permite cargar la capa de edificios de Overture.<br>Una vez activada, con un nivel de zoom de 18 o superior, pulsa <strong>Cargar zona</strong> para cargar los edificios de la zona visible. Selecciona un contorno y pulsa <strong>A</strong> o <strong>Añadir (A)</strong>.<br><strong>Comprueba cada edificio antes de guardar:</strong> los contornos generados pueden ser imprecisos. Compáralos con las imágenes y los datos OSM y corrige su forma y posición cuando sea necesario. Si desplazas el mapa, pulsa de nuevo el botón para cargar la zona visible."
   },
   "backgroundDescription": {
-    "message": "<strong>Fondos personalizados</strong><br>Esta función permite guardar fondos personalizados adicionales al que ofrece iD.<br>Añade aquí los fondos con un nombre y una plantilla de URL. En iD, abre la <strong>Configuración del fondo</strong> (icono de capas) y después <strong>Editar fondo personalizado</strong> (tres puntos). Elige una capa guardada en el panel para mostrarla en el mapa.<br><strong>Atención:</strong> asegúrate de que los fondos utilizados estén autorizados para la cartografía en OpenStreetMap."
+    "message": "Esta función permite guardar fondos personalizados adicionales al que ofrece iD.<br>Añade aquí los fondos con un nombre y una plantilla de URL. En iD, abre la <strong>Configuración del fondo</strong> (icono de capas) y después <strong>Editar fondo personalizado</strong> (tres puntos). Elige una capa guardada en el panel para mostrarla en el mapa.<br><strong>Atención:</strong> asegúrate de que los fondos utilizados estén autorizados para la cartografía en OpenStreetMap."
   },
   "commentDescription": {
-    "message": "<strong>Sugerencias para el comentario del conjunto de cambios</strong><br>Esta función sugiere un comentario para tus conjuntos de cambios cuando no sabes qué escribir. Analiza tus modificaciones y propone una descripción de las principales.<br>Al guardar en iD, pulsa <strong>Sugerir</strong> para generar un comentario basado en las modificaciones y la zona actual. Revísalo y corrígelo antes de subirlo, o sustitúyelo si no lo consideras adecuado.<br><br>Para sugerencias o comentarios, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">contacta conmigo en OpenStreetMap</a>."
+    "message": "Esta función sugiere un comentario para tus conjuntos de cambios cuando no sabes qué escribir. Analiza tus modificaciones y propone una descripción de las principales.<br>Al guardar en iD, pulsa <strong>Sugerir</strong> para generar un comentario basado en las modificaciones y la zona actual. Revísalo y corrígelo antes de subirlo, o sustitúyelo si no lo consideras adecuado.<br><br>Para sugerencias o comentarios, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">contacta conmigo en OpenStreetMap</a>."
   },
   "commentsInEnglish": {
     "message": "Comentarios en inglés"
@@ -376,5 +376,65 @@
   },
   "overtureMoveHelp": {
     "message": "Arrastra para mover. Doble clic o Inicio para restablecer; las flechas mueven el panel."
+  },
+  "hashtagLabel": {
+    "message": "Hashtag del conjunto de cambios"
+  },
+  "hashtagClear": {
+    "message": "Borrar"
+  },
+  "hashtagHelp": {
+    "message": "Se guarda automáticamente y se añade al campo de hashtags de iD al abrir el diálogo de guardado, hasta que lo borres. Escríbelo con o sin #."
+  },
+  "hashtagSaved": {
+    "message": "Hashtag guardado."
+  },
+  "hashtagCleared": {
+    "message": "Hashtag borrado: ya no se rellenará automáticamente."
+  },
+  "hashtagInvalid": {
+    "message": "Introduce un solo hashtag sin espacios (letras, números, _ o -). El valor guardado anteriormente no cambia."
+  },
+  "hashtagSaveError": {
+    "message": "No se pudo guardar el hashtag. Inténtalo de nuevo."
+  },
+  "sectionOverture": {
+    "message": "Edificios Overture"
+  },
+  "sectionLayers": {
+    "message": "Fondos personalizados"
+  },
+  "sectionComments": {
+    "message": "Comentarios y hashtags"
+  },
+  "sectionGrid": {
+    "message": "Cuadrícula de mapeo"
+  },
+  "gridHelp": {
+    "message": "Genera una cuadrícula centrada en la vista actual de OpenStreetMap. Para verla en iD, entra en modo edición y arrastra el archivo descargado al mapa."
+  },
+  "gridCount": {
+    "message": "Celdas por lado (1–10)"
+  },
+  "gridMeters": {
+    "message": "Lado de cada celda en metros (100–1000)"
+  },
+  "gridDownload": {
+    "message": "Descargar cuadrícula GeoJSON"
+  },
+  "gridInvalid": {
+    "message": "Introduce de 1 a 10 celdas por lado y un tamaño de 100 a 1000 metros."
+  },
+  "gridSite": {
+    "message": "Abre un mapa en www.openstreetmap.org."
+  },
+  "gridCoordinates": {
+    "message": "No se puede leer el centro del mapa. Mueve el mapa e inténtalo de nuevo."
+  },
+  "gridDone": {
+    "message": "Cuadrícula descargada. Arrastra el archivo al mapa en iD."
+  },
+  "gridError": {
+    "message": "No se puede generar la cuadrícula. Inténtalo de nuevo."
   }
 }

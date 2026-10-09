@@ -6,7 +6,7 @@
     "message": "Custom background layers, changeset comment suggestions, and Overture building outlines for iD."
   },
   "popupTitle": {
-    "message": "cOSMetics for iD 1.82"
+    "message": "cOSMetics for iD 1.85"
   },
   "overtureEnable": {
     "message": "Show Overture building controls in iD"
@@ -15,13 +15,13 @@
     "message": "Enable them when you want to inspect and add buildings. This choice is saved automatically."
   },
   "overtureDescription": {
-    "message": "<strong>Overture buildings</strong><br>This feature lets you load the building layer from Overture.<br>Once enabled, at zoom 18 or higher press <strong>Load area</strong> to load the buildings in the visible area. Select an outline and press <strong>A</strong> or <strong>Add (A)</strong>.<br><strong>Check each building before saving:</strong> generated outlines can be inaccurate. Compare them with imagery and OSM data, and correct their shape and position when needed. If you move the map, press the button again to load the visible area."
+    "message": "This feature lets you load the building layer from Overture.<br>Once enabled, at zoom 18 or higher press <strong>Load area</strong> to load the buildings in the visible area. Select an outline and press <strong>A</strong> or <strong>Add (A)</strong>.<br><strong>Check each building before saving:</strong> generated outlines can be inaccurate. Compare them with imagery and OSM data, and correct their shape and position when needed. If you move the map, press the button again to load the visible area."
   },
   "backgroundDescription": {
-    "message": "<strong>Custom background layers</strong><br>This feature lets you save additional custom backgrounds beyond the one provided by iD.<br>Add backgrounds here with a name and a URL template. In iD open <strong>Background settings</strong> (layers icon), then <strong>Edit custom background</strong> (three dots). Choose a saved layer in the panel to display it on the map.<br><strong>Important:</strong> make sure the backgrounds you use are permitted for OpenStreetMap mapping!"
+    "message": "This feature lets you save additional custom backgrounds beyond the one provided by iD.<br>Add backgrounds here with a name and a URL template. In iD open <strong>Background settings</strong> (layers icon), then <strong>Edit custom background</strong> (three dots). Choose a saved layer in the panel to display it on the map.<br><strong>Important:</strong> make sure the backgrounds you use are permitted for OpenStreetMap mapping!"
   },
   "commentDescription": {
-    "message": "<strong>Changeset comment suggestions</strong><br>This feature suggests a comment for your changesets when you are unsure what to write. It analyzes your edits and proposes a description of the main changes.<br>When saving in iD, press <strong>Suggest</strong> to generate a comment based on your edits and the current area. Review and correct it before uploading, or replace it if you find it unsuitable.<br><br>For suggestions or feedback, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">contact me on OpenStreetMap</a>."
+    "message": "This feature suggests a comment for your changesets when you are unsure what to write. It analyzes your edits and proposes a description of the main changes.<br>When saving in iD, press <strong>Suggest</strong> to generate a comment based on your edits and the current area. Review and correct it before uploading, or replace it if you find it unsuitable.<br><br>For suggestions or feedback, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">contact me on OpenStreetMap</a>."
   },
   "commentsInEnglish": {
     "message": "Comments in English"
@@ -376,5 +376,65 @@
   },
   "overtureMoveHelp": {
     "message": "Drag to move. Double-click or press Home to reset; arrow keys move the panel."
+  },
+  "hashtagLabel": {
+    "message": "Changeset hashtag"
+  },
+  "hashtagClear": {
+    "message": "Clear"
+  },
+  "hashtagHelp": {
+    "message": "Saved automatically and added to iD’s hashtag field when you open the save dialog, until you clear it. Enter it with or without #."
+  },
+  "hashtagSaved": {
+    "message": "Hashtag saved."
+  },
+  "hashtagCleared": {
+    "message": "Hashtag cleared: it will no longer be prefilled."
+  },
+  "hashtagInvalid": {
+    "message": "Enter a single hashtag without spaces (letters, numbers, _ or -). The previous saved value is unchanged."
+  },
+  "hashtagSaveError": {
+    "message": "Could not save the hashtag. Please try again."
+  },
+  "sectionOverture": {
+    "message": "Overture buildings"
+  },
+  "sectionLayers": {
+    "message": "Custom backgrounds"
+  },
+  "sectionComments": {
+    "message": "Comments and hashtags"
+  },
+  "sectionGrid": {
+    "message": "Mapping grid"
+  },
+  "gridHelp": {
+    "message": "Generate a grid centred on the current OpenStreetMap view. To display it in iD, enter edit mode and drag the downloaded file onto the map."
+  },
+  "gridCount": {
+    "message": "Cells per side (1–10)"
+  },
+  "gridMeters": {
+    "message": "Cell side in metres (100–1000)"
+  },
+  "gridDownload": {
+    "message": "Download GeoJSON grid"
+  },
+  "gridInvalid": {
+    "message": "Enter 1 to 10 cells per side and a size of 100 to 1000 metres."
+  },
+  "gridSite": {
+    "message": "Open a map on www.openstreetmap.org."
+  },
+  "gridCoordinates": {
+    "message": "Cannot read the map centre. Move the map and try again."
+  },
+  "gridDone": {
+    "message": "Grid downloaded. Drag the file onto the map in iD."
+  },
+  "gridError": {
+    "message": "Cannot generate the grid. Please try again."
   }
 }

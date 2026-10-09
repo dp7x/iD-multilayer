@@ -27,6 +27,55 @@ commentsInEnglish.addEventListener('change', () => {
     chrome.storage.sync.set({ commentsInEnglish: commentsInEnglish.checked });
 });
 
+function normalizeCommentHashtag(value) {
+    if (typeof value !== 'string') return '';
+    const text = value.trim().replace(/^#+/, '');
+    if (!text) return '';
+    if (!/^[\p{L}\p{M}\p{N}_-]+$/u.test(text) || text.length > 99) return null;
+    return `#${text}`;
+}
+
+// Local preference: retained across popup closures and browser restarts until cleared.
+const changesetHashtag = document.getElementById('changesetHashtag');
+const clearHashtag = document.getElementById('clearHashtag');
+const hashtagFeedback = document.getElementById('hashtagFeedback');
+let hashtagTouched = false;
+let hashtagSaveRequest = 0;
+chrome.storage.local.get('changesetHashtag', items => {
+    if (hashtagTouched) return;
+    changesetHashtag.value = normalizeCommentHashtag(items.changesetHashtag) || '';
+    clearHashtag.disabled = !changesetHashtag.value;
+});
+function saveCommentHashtag() {
+    hashtagTouched = true;
+    const request = ++hashtagSaveRequest;
+    const value = normalizeCommentHashtag(changesetHashtag.value);
+    clearHashtag.disabled = !changesetHashtag.value;
+    if (value === null) {
+        hashtagFeedback.textContent = t('hashtagInvalid');
+        changesetHashtag.setAttribute('aria-invalid', 'true');
+        return;
+    }
+    changesetHashtag.removeAttribute('aria-invalid');
+    chrome.storage.local.set({ changesetHashtag: value }, () => {
+        const error = chrome.runtime.lastError;
+        if (request !== hashtagSaveRequest) return;
+        hashtagFeedback.textContent = error ? t('hashtagSaveError') :
+            t(value ? 'hashtagSaved' : 'hashtagCleared');
+        clearHashtag.disabled = !value;
+    });
+}
+changesetHashtag.addEventListener('input', saveCommentHashtag);
+changesetHashtag.addEventListener('blur', () => {
+    const value = normalizeCommentHashtag(changesetHashtag.value);
+    if (value !== null) changesetHashtag.value = value;
+});
+clearHashtag.addEventListener('click', () => {
+    changesetHashtag.value = '';
+    saveCommentHashtag();
+    changesetHashtag.focus();
+});
+
 const settingsForm = document.getElementById('settingsForm');
 const feedbackDiv = document.getElementById('feedback');
 

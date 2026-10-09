@@ -6,7 +6,7 @@
     "message": "Fonds personnalisés, suggestions de commentaires de groupes de modifications et contours de bâtiments Overture pour iD."
   },
   "popupTitle": {
-    "message": "cOSMetics for iD 1.82"
+    "message": "cOSMetics for iD 1.85"
   },
   "overtureEnable": {
     "message": "Afficher les commandes des bâtiments Overture dans iD"
@@ -15,13 +15,13 @@
     "message": "Activez-les pour examiner et ajouter des bâtiments. Ce choix est enregistré automatiquement."
   },
   "overtureDescription": {
-    "message": "<strong>Bâtiments Overture</strong><br>Cette fonctionnalité permet de charger la couche de bâtiments d’Overture.<br>Une fois activée, au niveau de zoom 18 ou supérieur, cliquez sur <strong>Charger la zone</strong> pour charger les bâtiments de la zone visible. Sélectionnez un contour et appuyez sur <strong>A</strong> ou cliquez sur <strong>Ajouter (A)</strong>.<br><strong>Vérifiez chaque bâtiment avant d’enregistrer :</strong> les contours générés peuvent être imprécis. Comparez-les avec l’imagerie et les données OSM et corrigez leur forme et leur position si nécessaire. Si vous déplacez la carte, cliquez à nouveau sur le bouton pour charger la zone visible."
+    "message": "Cette fonctionnalité permet de charger la couche de bâtiments d’Overture.<br>Une fois activée, au niveau de zoom 18 ou supérieur, cliquez sur <strong>Charger la zone</strong> pour charger les bâtiments de la zone visible. Sélectionnez un contour et appuyez sur <strong>A</strong> ou cliquez sur <strong>Ajouter (A)</strong>.<br><strong>Vérifiez chaque bâtiment avant d’enregistrer :</strong> les contours générés peuvent être imprécis. Comparez-les avec l’imagerie et les données OSM et corrigez leur forme et leur position si nécessaire. Si vous déplacez la carte, cliquez à nouveau sur le bouton pour charger la zone visible."
   },
   "backgroundDescription": {
-    "message": "<strong>Fonds personnalisés</strong><br>Cette fonctionnalité permet d’enregistrer des fonds personnalisés supplémentaires, en plus de celui prévu par iD.<br>Ajoutez ici des fonds avec un nom et un modèle d’URL. Dans iD, ouvrez les <strong>Paramètres du fond</strong> (icône des couches), puis <strong>Modifier le fond personnalisé</strong> (trois points). Choisissez un fond enregistré dans le panneau pour l’afficher sur la carte.<br><strong>Attention :</strong> assurez-vous que les fonds utilisés sont autorisés pour la cartographie dans OpenStreetMap !"
+    "message": "Cette fonctionnalité permet d’enregistrer des fonds personnalisés supplémentaires, en plus de celui prévu par iD.<br>Ajoutez ici des fonds avec un nom et un modèle d’URL. Dans iD, ouvrez les <strong>Paramètres du fond</strong> (icône des couches), puis <strong>Modifier le fond personnalisé</strong> (trois points). Choisissez un fond enregistré dans le panneau pour l’afficher sur la carte.<br><strong>Attention :</strong> assurez-vous que les fonds utilisés sont autorisés pour la cartographie dans OpenStreetMap !"
   },
   "commentDescription": {
-    "message": "<strong>Suggestions de commentaires de groupes de modifications</strong><br>Cette fonctionnalité propose un commentaire pour vos groupes de modifications lorsque vous ne savez pas quoi écrire. Elle analyse vos modifications et propose une description des principales.<br>Lors de l’enregistrement dans iD, cliquez sur <strong>Suggérer</strong> pour générer un commentaire à partir des modifications et de la zone actuelle. Vérifiez-le et corrigez-le avant l’envoi, ou remplacez-le si vous ne le trouvez pas adapté.<br><br>Pour toute suggestion ou remarque, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">contactez-moi sur OpenStreetMap</a>."
+    "message": "Cette fonctionnalité propose un commentaire pour vos groupes de modifications lorsque vous ne savez pas quoi écrire. Elle analyse vos modifications et propose une description des principales.<br>Lors de l’enregistrement dans iD, cliquez sur <strong>Suggérer</strong> pour générer un commentaire à partir des modifications et de la zone actuelle. Vérifiez-le et corrigez-le avant l’envoi, ou remplacez-le si vous ne le trouvez pas adapté.<br><br>Pour toute suggestion ou remarque, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">contactez-moi sur OpenStreetMap</a>."
   },
   "commentsInEnglish": {
     "message": "Commentaires en anglais"
@@ -376,5 +376,65 @@
   },
   "overtureMoveHelp": {
     "message": "Faites glisser pour déplacer. Double-clic ou touche Début pour réinitialiser ; les flèches déplacent le panneau."
+  },
+  "hashtagLabel": {
+    "message": "Hashtag du groupe de modifications"
+  },
+  "hashtagClear": {
+    "message": "Effacer"
+  },
+  "hashtagHelp": {
+    "message": "Enregistré automatiquement et ajouté au champ des hashtags d’iD à l’ouverture de l’enregistrement, jusqu’à ce que vous l’effaciez. Saisissez-le avec ou sans #."
+  },
+  "hashtagSaved": {
+    "message": "Hashtag enregistré."
+  },
+  "hashtagCleared": {
+    "message": "Hashtag effacé : il ne sera plus prérempli."
+  },
+  "hashtagInvalid": {
+    "message": "Saisissez un seul hashtag sans espaces (lettres, chiffres, _ ou -). La valeur enregistrée précédemment reste inchangée."
+  },
+  "hashtagSaveError": {
+    "message": "Impossible d’enregistrer le hashtag. Veuillez réessayer."
+  },
+  "sectionOverture": {
+    "message": "Bâtiments Overture"
+  },
+  "sectionLayers": {
+    "message": "Fonds personnalisés"
+  },
+  "sectionComments": {
+    "message": "Commentaires et hashtags"
+  },
+  "sectionGrid": {
+    "message": "Grille de cartographie"
+  },
+  "gridHelp": {
+    "message": "Générez une grille centrée sur la vue OpenStreetMap actuelle. Pour l’afficher dans iD, passez en mode édition et glissez le fichier téléchargé sur la carte."
+  },
+  "gridCount": {
+    "message": "Cellules par côté (1–10)"
+  },
+  "gridMeters": {
+    "message": "Côté de chaque cellule en mètres (100–1000)"
+  },
+  "gridDownload": {
+    "message": "Télécharger la grille GeoJSON"
+  },
+  "gridInvalid": {
+    "message": "Saisissez 1 à 10 cellules par côté et une taille de 100 à 1000 mètres."
+  },
+  "gridSite": {
+    "message": "Ouvrez une carte sur www.openstreetmap.org."
+  },
+  "gridCoordinates": {
+    "message": "Impossible de lire le centre de la carte. Déplacez la carte et réessayez."
+  },
+  "gridDone": {
+    "message": "Grille téléchargée. Glissez le fichier sur la carte dans iD."
+  },
+  "gridError": {
+    "message": "Impossible de générer la grille. Réessayez."
   }
 }

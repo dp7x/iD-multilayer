@@ -30,7 +30,15 @@ Developed for Chrome. Firefox compatibility has not been verified.
 * **Smart Area Detection:** Uses iD's location panel or resolves coordinates through Nominatim.
 * **One-Click Generation:** Adds a **Suggest** button to the save dialog, producing comments such as:
   `Created trees, woods, buildings, farmlands + modified highways in Cingoli area`
+* **Persistent Hashtag:** Set a hashtag in the popup to prefill iD’s standard hashtag field when you open the save dialog, even if you write the comment manually. It is saved automatically on this device until you clear it. Other hashtags are preserved and duplicates are avoided; the suggested comment contains no appended hashtag.
 * **Sorting:** Shows up to four categories separately for creations and modifications, ordered by object count and then by total geometry points. “Other improvements” is added only when categories are omitted.
+
+### ▦ Mapping Grid
+
+* Download a GeoJSON grid centred on the current OpenStreetMap view: 1–10 cells per side and 100–1000 metres per cell. Then enter edit mode in iD and drag the downloaded file onto the map. Grid parameters are remembered locally.
+* The grid is a visual aid; generating it does not add objects to OpenStreetMap.
+
+**Compact popup:** Each feature has a collapsible section. Open/closed states are remembered locally and the Save button remains visible while the contents scroll.
 
 ### 🌐 Languages
 

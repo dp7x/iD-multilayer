@@ -6,7 +6,7 @@
     "message": "Vlastné podkladové mapy, návrhy komentárov k úpravám a obrysy budov Overture v editore iD."
   },
   "popupTitle": {
-    "message": "cOSMetics for iD 1.82"
+    "message": "cOSMetics for iD 1.85"
   },
   "overtureEnable": {
     "message": "Zobraziť ovládanie budov Overture v iD"
@@ -15,13 +15,13 @@
     "message": "Zapnite ho, keď chcete prezerať a pridávať budovy. Voľba sa uloží automaticky."
   },
   "overtureDescription": {
-    "message": "<strong>Budovy Overture</strong><br>Táto funkcia umožňuje načítať vrstvu budov z Overture.<br>Po aktivácii pri priblížení 18 alebo vyššom stlačte <strong>Načítať oblasť</strong> a načítajte budovy v zobrazenej oblasti. Vyberte obrys a stlačte <strong>A</strong> alebo <strong>Pridať (A)</strong>.<br><strong>Pred uložením skontrolujte každú budovu:</strong> vytvorené obrysy môžu byť nepresné. Porovnajte ich so snímkami a údajmi OSM a podľa potreby opravte tvar a polohu. Ak posuniete mapu, opätovným stlačením tlačidla načítajte zobrazenú oblasť."
+    "message": "Táto funkcia umožňuje načítať vrstvu budov z Overture.<br>Po aktivácii pri priblížení 18 alebo vyššom stlačte <strong>Načítať oblasť</strong> a načítajte budovy v zobrazenej oblasti. Vyberte obrys a stlačte <strong>A</strong> alebo <strong>Pridať (A)</strong>.<br><strong>Pred uložením skontrolujte každú budovu:</strong> vytvorené obrysy môžu byť nepresné. Porovnajte ich so snímkami a údajmi OSM a podľa potreby opravte tvar a polohu. Ak posuniete mapu, opätovným stlačením tlačidla načítajte zobrazenú oblasť."
   },
   "backgroundDescription": {
-    "message": "<strong>Vlastné podkladové mapy</strong><br>Táto funkcia umožňuje uložiť ďalšie vlastné podkladové mapy nad rámec tej, ktorú poskytuje iD.<br>Pridajte sem podkladové mapy s názvom a šablónou URL. V iD otvorte <strong>Nastavenia podkladovej mapy</strong> (ikona vrstiev) a potom <strong>Upraviť vlastnú podkladovú mapu</strong> (tri bodky). V paneli vyberte uloženú vrstvu a zobrazte ju na mape.<br><strong>Upozornenie:</strong> uistite sa, že použitie vybraných podkladových máp na mapovanie v OpenStreetMap je povolené!"
+    "message": "Táto funkcia umožňuje uložiť ďalšie vlastné podkladové mapy nad rámec tej, ktorú poskytuje iD.<br>Pridajte sem podkladové mapy s názvom a šablónou URL. V iD otvorte <strong>Nastavenia podkladovej mapy</strong> (ikona vrstiev) a potom <strong>Upraviť vlastnú podkladovú mapu</strong> (tri bodky). V paneli vyberte uloženú vrstvu a zobrazte ju na mape.<br><strong>Upozornenie:</strong> uistite sa, že použitie vybraných podkladových máp na mapovanie v OpenStreetMap je povolené!"
   },
   "commentDescription": {
-    "message": "<strong>Návrhy komentárov k sadám zmien</strong><br>Táto funkcia navrhuje komentár k vašim sadám zmien, keď neviete, čo napísať. Analyzuje vaše úpravy a navrhne opis hlavných zmien.<br>Pri ukladaní v iD stlačte <strong>Navrhnúť</strong> a vytvorte komentár na základe úprav a aktuálnej oblasti. Pred odoslaním ho skontrolujte a opravte alebo ho nahraďte, ak nie je vhodný.<br><br>Ak máte návrhy alebo pripomienky, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">kontaktujte ma na OpenStreetMap</a>."
+    "message": "Táto funkcia navrhuje komentár k vašim sadám zmien, keď neviete, čo napísať. Analyzuje vaše úpravy a navrhne opis hlavných zmien.<br>Pri ukladaní v iD stlačte <strong>Navrhnúť</strong> a vytvorte komentár na základe úprav a aktuálnej oblasti. Pred odoslaním ho skontrolujte a opravte alebo ho nahraďte, ak nie je vhodný.<br><br>Ak máte návrhy alebo pripomienky, <a href=\"https://www.openstreetmap.org/messages/new/dp7\" target=\"_blank\">kontaktujte ma na OpenStreetMap</a>."
   },
   "commentsInEnglish": {
     "message": "Komentáre v angličtine"
@@ -376,5 +376,65 @@
   },
   "overtureMoveHelp": {
     "message": "Presunutím premiestnite panel. Dvojklik alebo Home obnoví polohu; šípky posúvajú panel."
+  },
+  "hashtagLabel": {
+    "message": "Hashtag sady zmien"
+  },
+  "hashtagClear": {
+    "message": "Vymazať"
+  },
+  "hashtagHelp": {
+    "message": "Automaticky sa uloží a vyplní v poli hashtagov iD pri otvorení okna ukladania, kým ho nevymažete. Zadajte ho s # alebo bez neho."
+  },
+  "hashtagSaved": {
+    "message": "Hashtag bol uložený."
+  },
+  "hashtagCleared": {
+    "message": "Hashtag bol vymazaný: už sa nebude automaticky vypĺňať."
+  },
+  "hashtagInvalid": {
+    "message": "Zadajte jeden hashtag bez medzier (písmená, číslice, _ alebo -). Predtým uložená hodnota zostáva nezmenená."
+  },
+  "hashtagSaveError": {
+    "message": "Hashtag sa nepodarilo uložiť. Skúste to znova."
+  },
+  "sectionOverture": {
+    "message": "Budovy Overture"
+  },
+  "sectionLayers": {
+    "message": "Vlastné pozadia"
+  },
+  "sectionComments": {
+    "message": "Komentáre a hashtagy"
+  },
+  "sectionGrid": {
+    "message": "Mapovacia mriežka"
+  },
+  "gridHelp": {
+    "message": "Vytvor mriežku so stredom v aktuálnom zobrazení OpenStreetMap. V iD prejdi do režimu úprav a pretiahni stiahnutý súbor na mapu."
+  },
+  "gridCount": {
+    "message": "Počet buniek na strane (1–10)"
+  },
+  "gridMeters": {
+    "message": "Dĺžka strany bunky v metroch (100–1000)"
+  },
+  "gridDownload": {
+    "message": "Stiahnuť mriežku GeoJSON"
+  },
+  "gridInvalid": {
+    "message": "Zadaj 1 až 10 buniek na strane a veľkosť 100 až 1000 metrov."
+  },
+  "gridSite": {
+    "message": "Otvor mapu na www.openstreetmap.org."
+  },
+  "gridCoordinates": {
+    "message": "Nedá sa načítať stred mapy. Posuň mapu a skús znova."
+  },
+  "gridDone": {
+    "message": "Mriežka stiahnutá. Pretiahni súbor na mapu v iD."
+  },
+  "gridError": {
+    "message": "Mriežku sa nepodarilo vytvoriť. Skús znova."
   }
 }

@@ -170,6 +170,56 @@
     document.dispatchEvent(new CustomEvent('cosmetics:geometry-points-result', { detail: { points } }));
   });
 
+  // Use iD's own changeset field callback, so hashtags are saved as metadata.
+  document.addEventListener('cosmetics:changeset-hashtag', event => {
+    const reply = ok => document.dispatchEvent(new CustomEvent('cosmetics:changeset-hashtag-result', { detail: { ok } }));
+    try {
+      const panel = document.querySelector('.modal-section.changeset-editor');
+      const hashtag = event.detail?.hashtag;
+      const previous = event.detail?.previous;
+      const valid = value => typeof value === 'string' &&
+        (value === '' || /^#[\p{L}\p{M}\p{N}_-]{1,99}$/u.test(value));
+      if (!panel || !context?.changeset || !valid(hashtag) || !valid(previous)) return reply(false);
+      const currentTags = context.changeset.tags;
+      const hashtags = [];
+      const seen = new Set();
+      for (const raw of (currentTags.hashtags || '').split(/[,;\s]+/).filter(Boolean)) {
+        const item = raw.startsWith('#') ? raw : `#${raw}`;
+        const key = item.toLowerCase();
+        if (previous && previous.toLowerCase() !== hashtag.toLowerCase() && key === previous.toLowerCase()) continue;
+        if (!seen.has(key)) { seen.add(key); hashtags.push(item); }
+      }
+      if (hashtag && !seen.has(hashtag.toLowerCase())) hashtags.push(hashtag);
+      const value = hashtags.join(';');
+      const maxLength = typeof context.maxCharsForTagValue === 'function' ? context.maxCharsForTagValue() : 255;
+      if ([...value].length > maxLength) return reply(false);
+      const getField = () => panel.querySelector('.wrap-form-field-hashtags')?.__data__;
+      let field = getField();
+      if (!field && !value) return reply(true);
+      if (!field) {
+        // iD hides optional fields until a value exists. Reveal its normal field
+        // by updating the changeset and asking the comment editor to rerender.
+        const commentInput = panel.querySelector('.form-field-comment textarea');
+        if (!commentInput) return reply(false);
+        context.changeset = context.changeset.update({ tags: { ...currentTags, hashtags: value } });
+        commentInput.dispatchEvent(new Event('input', { bubbles: true }));
+        field = getField();
+        if (!field || typeof field.on !== 'function' || typeof field.on('change') !== 'function') {
+          context.changeset = context.changeset.update({ tags: currentTags });
+          commentInput.dispatchEvent(new Event('input', { bubbles: true }));
+          return reply(false);
+        }
+      }
+      const change = typeof field.on === 'function' && field.on('change');
+      if (typeof change !== 'function') return reply(false);
+      change.call(field, { hashtags: value || undefined }, false);
+      reply(true);
+    } catch (error) {
+      console.warn('cOSMetics: cannot update the iD hashtag field', error);
+      reply(false);
+    }
+  });
+
   function attach(api) {
     if (!api || typeof api.coreContext !== 'function') return api;
     const original = api.coreContext;

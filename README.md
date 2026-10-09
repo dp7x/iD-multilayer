@@ -1,3 +1,5 @@
+<img width="64" height="64" alt="image" src="https://github.com/user-attachments/assets/ed3a26cc-6f37-47d5-8b00-734e13472a59" />
+
 # cOSMetics for iD
 
 Custom Layers, Building Assistant & Changeset Comment Suggester

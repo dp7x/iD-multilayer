@@ -1,9 +1,12 @@
-<img width="440" height="280" alt="image" align="center" src="https://github.com/user-attachments/assets/74690435-e1d8-4a6d-8b86-9c12bbcc4f05" />
+<div align="center">
+  <img width="440" height="280" alt="image" src="https://github.com/user-attachments/assets/74690435-e1d8-4a6d-8b86-9c12bbcc4f05" />
 
+  # cOSMetics for iD
 
-# cOSMetics for iD
+  Custom Layers, Building Assistant & Changeset Comment Suggester
+</div>
 
-Custom Layers, Building Assistant & Changeset Comment Suggester
+<hr>
 
 ## Overview
 

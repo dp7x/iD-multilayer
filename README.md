@@ -29,7 +29,7 @@ Developed for Chrome. Firefox compatibility has not been verified.
 * **Specific Categories:** Common values receive specific names, while other values use the master tag's general category. Moved untagged nodes are classified through their parent ways already loaded in iD; otherwise, the suggestion uses “geometries”.
 * **Smart Area Detection:** Uses iD's location panel or resolves coordinates through Nominatim.
 * **One-Click Generation:** Adds a **Suggest** button to the save dialog, producing comments such as:
-  `Created trees, woods, buildings, farmlands + modified highways in Cingoli area`
+  `Created trees, woods, buildings, farmlands + modified highways in Roma area`
 * **Persistent Hashtag:** Set a hashtag in the popup to prefill iD’s standard hashtag field when you open the save dialog, even if you write the comment manually. It is saved automatically on this device until you clear it. Other hashtags are preserved and duplicates are avoided; the suggested comment contains no appended hashtag.
 * **Sorting:** Shows up to four categories separately for creations and modifications, ordered by object count and then by total geometry points. “Other improvements” is added only when categories are omitted.
 
